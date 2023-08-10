@@ -30,6 +30,12 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/issues:
+    devDependencies:
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   packages/tailwindcss-plugin:
     devDependencies:
       '@storybook/addon-essentials':
