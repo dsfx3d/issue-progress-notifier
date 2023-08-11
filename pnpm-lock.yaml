@@ -30,6 +30,15 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/graphql-request:
+    devDependencies:
+      graphql-request:
+        specifier: ^6.1.0
+        version: 6.1.0(graphql@16.7.1)
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   packages/issues-bin:
     dependencies:
       '@ipn/issues-gql':
