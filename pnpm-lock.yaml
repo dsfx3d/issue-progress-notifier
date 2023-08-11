@@ -92,7 +92,17 @@ importers:
         version: 5.1.6
 
   packages/templates:
+    dependencies:
+      ejs:
+        specifier: ^3.1.9
+        version: 3.1.9
+      typed-html:
+        specifier: ^3.0.1
+        version: 3.0.1
     devDependencies:
+      '@types/ejs':
+        specifier: ^3.1.2
+        version: 3.1.2
       '@types/node':
         specifier: ^20.4.9
         version: 20.4.9
@@ -4454,6 +4464,11 @@ packages:
     dependencies:
       media-typer: 0.3.0
       mime-types: 2.1.35
+    dev: false
+
+  /typed-html@3.0.1:
+    resolution: {integrity: sha512-JKCM9zTfPDuPqQqdGZBWSEiItShliKkBFg5c6yOR8zth43v763XkAzTWaOlVqc0Y6p9ee8AaAbipGfUnCsYZUA==}
+    engines: {node: '>=12'}
     dev: false
 
   /typescript@5.1.6:
