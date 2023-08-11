@@ -1,13 +1,14 @@
 import express from "express";
-import dotenv from "dotenv";
-import {router} from "./issues/router";
+import {toIssuesRouter} from "./issues/toIssuesRouter";
+import {toGraphQLClient} from "./toGraphQLClient";
+import {env} from "./env";
 
-dotenv.config();
 const app = express();
 app.set("view engine", "ejs");
-
-app.use("/issues", router);
-
+app.use(
+  "/issues",
+  toIssuesRouter(express.Router(), toGraphQLClient(env.GH_ACCESS_TOKEN)),
+);
 app.listen(3000, () => {
   console.log("Listening on port http://localhost:3000");
 });
