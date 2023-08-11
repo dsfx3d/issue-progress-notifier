@@ -4,5 +4,6 @@
   "editor.formatOnSaveMode": "modifications",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+  "typescript.format.enable": false
 }
