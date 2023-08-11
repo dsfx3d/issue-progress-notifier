@@ -63,6 +63,12 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/templates:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.4.9
+        version: 20.4.9
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
