@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true
-  }
+    "outDir": "dist",
+    "declaration": true,
+    "jsx": "react",
+    "jsxFactory": "elements.createElement"
+  },
+  "include": ["**/*.tsx", "**/*.ts"]
 }
