@@ -1,16 +1,16 @@
-import {CompileOptions} from "./CompileOptions";
-import {PurgeCSS} from "purgecss";
-import {Task} from "fp-ts/lib/Task";
+import {type CompileOptions} from "./CompileOptions";
+import {type ReaderTaskEither} from "fp-ts/lib/ReaderTaskEither";
+import {map, tryCatchK} from "fp-ts/lib/TaskEither";
+import {pipe} from "fp-ts/lib/function";
+import {toPurgedCss} from "./toPurgedCss";
 
-export function purgeCss(options: CompileOptions): Task<CompileOptions> {
-  return async () => {
-    const [{css}] = await new PurgeCSS().purge({
-      content: [{raw: options.body, extension: "html"}],
-      css: [{raw: options.css}],
-    });
-    return {
-      ...options,
-      css,
-    };
-  };
-}
+export const purgeCss: ReaderTaskEither<
+  CompileOptions,
+  Error,
+  CompileOptions
+> = options =>
+  pipe(
+    options,
+    tryCatchK(toPurgedCss, error => error as Error),
+    map(css => ({...options, css})),
+  );
