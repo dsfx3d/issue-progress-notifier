@@ -119,7 +119,7 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2
       '@types/node':
-        specifier: ^18.11.19
+        specifier: ~18.11.19
         version: 18.11.19
       typescript:
         specifier: ^5.1.6
@@ -136,6 +136,9 @@ importers:
       '@issue-notifier/graphql-request':
         specifier: workspace:*
         version: link:../graphql-request
+      '@issue-notifier/template-compiler':
+        specifier: workspace:*
+        version: link:../template-compiler
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1
