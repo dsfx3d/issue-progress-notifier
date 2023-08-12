@@ -1,5 +1,5 @@
-import {type Router} from "express";
 import {Issue} from "@ipn/templates";
+import {type Router} from "express";
 import {toGetIssueQuery} from "./toGetIssueQuery";
 
 export const toIssuesRouter =
