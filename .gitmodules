@@ -1,0 +1,3 @@
+[submodule "packages/generate-github-markdown-css"]
+	path = packages/generate-github-markdown-css
+	url = https://github.com/sindresorhus/generate-github-markdown-css
