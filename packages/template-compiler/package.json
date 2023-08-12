@@ -2,17 +2,23 @@
   "name": "@issue-notifier/template-compiler",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/node": "~18.11.19",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "generate-github-markdown-css": "^5.1.0"
+    "@ipn/templates": "workspace:*",
+    "ejs": "^3.1.9",
+    "fp-ts": "^2.16.1",
+    "purgecss": "^5.0.0"
   }
 }

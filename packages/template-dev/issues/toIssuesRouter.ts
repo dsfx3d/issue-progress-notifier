@@ -1,5 +1,5 @@
-import {Issue} from "@ipn/templates";
 import {type Router} from "express";
+import {issueCompiler} from "./issueCompiler";
 import {toGetIssueQuery} from "./toGetIssueQuery";
 
 export const toIssuesRouter =
@@ -13,8 +13,11 @@ export const toIssuesRouter =
           issue: Number(req.params.number),
         },
       ]);
-      const html = Issue(issue);
-      res.render("layout", {html});
+      const compile = issueCompiler(issue);
+      const result = await compile();
+      result.error
+        ? res.status(500).send(result.message)
+        : res.send(result.result);
     });
     return router;
   };

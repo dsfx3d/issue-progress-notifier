@@ -6,7 +6,6 @@ import {toIssuesRouter} from "./issues/toIssuesRouter";
 import express from "express";
 
 const app = express();
-app.set("view engine", "ejs");
 app.use(
   "/issues",
   pipe(
