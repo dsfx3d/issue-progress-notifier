@@ -14,7 +14,10 @@ export const toIssuesRouter =
         },
       ]);
       const compile = issueCompiler(issue);
-      res.send(await compile());
+      const result = await compile();
+      result.error
+        ? res.status(500).send(result.message)
+        : res.send(result.result);
     });
     return router;
   };
