@@ -2,14 +2,15 @@
   "name": "@issue-notifier/graphql-request",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@graphql-typed-document-node/core": "^3.2.0",
     "graphql-request": "^6.1.0",
     "typescript": "^5.1.6"
   }
