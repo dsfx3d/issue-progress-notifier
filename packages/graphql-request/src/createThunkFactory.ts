@@ -7,5 +7,5 @@ export const createThunkFactory =
     document: TypedDocumentNode<TResult, TVars>,
   ) =>
   (client: GraphQLClient) =>
-  (variables: VariablesAndRequestHeadersArgs<TVars>) =>
+  (...variables: VariablesAndRequestHeadersArgs<TVars>) =>
     client.request(document, ...variables);
