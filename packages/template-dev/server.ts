@@ -1,9 +1,9 @@
-import express from "express";
-import {pipe} from "fp-ts/function";
-import {toIssuesRouter} from "./issues/toIssuesRouter";
-import {toGraphQLClient} from "./toGraphQLClient";
 import {env} from "./env";
+import {pipe} from "fp-ts/function";
 import {toGetIssueQuery} from "./issues/toGetIssueQuery";
+import {toGraphQLClient} from "./toGraphQLClient";
+import {toIssuesRouter} from "./issues/toIssuesRouter";
+import express from "express";
 
 const app = express();
 app.set("view engine", "ejs");
