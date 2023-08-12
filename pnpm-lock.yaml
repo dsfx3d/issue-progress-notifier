@@ -105,6 +105,9 @@ importers:
       '@ipn/templates':
         specifier: workspace:*
         version: link:../templates
+      ejs:
+        specifier: ^3.1.9
+        version: 3.1.9
       generate-github-markdown-css:
         specifier: ^5.1.0
         version: link:../generate-github-markdown-css
