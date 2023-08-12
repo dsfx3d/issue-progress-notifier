@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@ipn/issues-gql": "workspace:*",
+    "@ipn/templates": "workspace:*",
     "generate-github-markdown-css": "^5.1.0"
   }
 }
