@@ -78,6 +78,12 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/template-compiler:
+    devDependencies:
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   packages/template-dev:
     dependencies:
       '@ipn/issues-gql':
