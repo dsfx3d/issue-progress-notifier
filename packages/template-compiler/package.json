@@ -13,6 +13,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@ipn/issues-gql": "workspace:*",
     "generate-github-markdown-css": "^5.1.0"
   }
 }
