@@ -1,3 +1,4 @@
-import {ReaderTask} from "fp-ts/lib/ReaderTask";
+import {type CompilerResult} from "./CompilerResult";
+import {type ReaderTask} from "fp-ts/lib/ReaderTask";
 
-export type TCompilerTask<TProp> = ReaderTask<TProp, string>;
+export type TCompilerTask<TProp> = ReaderTask<TProp, CompilerResult>;
