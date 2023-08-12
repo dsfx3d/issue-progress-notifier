@@ -1,13 +1,4 @@
-import {
-  GetIssueDocument,
-  type GetIssueQuery,
-  type GetIssueQueryVariables,
-} from "@ipn/issues-gql";
-import {type GraphQLClient} from "graphql-request";
+import {GetIssueDocument} from "@ipn/issues-gql";
+import {createThunkFactory} from "@issue-notifier/graphql-request";
 
-export function toGetIssueQuery(
-  client: GraphQLClient,
-  variables: GetIssueQueryVariables,
-): Promise<GetIssueQuery> {
-  return client.request(GetIssueDocument, variables);
-}
+export const toGetIssueQuery = createThunkFactory(GetIssueDocument);
