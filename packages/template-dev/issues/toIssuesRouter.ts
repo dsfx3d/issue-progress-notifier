@@ -13,7 +13,8 @@ export const toIssuesRouter =
           issue: Number(req.params.number),
         },
       ]);
-      res.send(issueCompiler(issue));
+      const compile = issueCompiler(issue);
+      res.send(await compile());
     });
     return router;
   };
