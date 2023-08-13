@@ -72,12 +72,12 @@ importers:
         specifier: ^2.16.1
         version: 2.16.1
     devDependencies:
-      '@types/ejs':
-        specifier: ^3.1.2
-        version: 3.1.2
-      '@types/node':
-        specifier: ~18.11.19
-        version: 18.11.19
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
+  packages/template-compiler-plugin-html:
+    devDependencies:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
@@ -1588,10 +1588,6 @@ packages:
 
   /@types/mime@3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
-    dev: true
-
-  /@types/node@18.11.19:
-    resolution: {integrity: sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==}
     dev: true
 
   /@types/node@20.4.9:
