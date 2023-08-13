@@ -99,6 +99,9 @@ importers:
       '@issue-notifier/template-compiler':
         specifier: workspace:*
         version: link:../template-compiler
+      '@issue-notifier/template-compiler-plugin-html':
+        specifier: workspace:*
+        version: link:../template-compiler-plugin-html
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1

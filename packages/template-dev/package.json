@@ -14,6 +14,7 @@
     "@ipn/templates": "workspace:*",
     "@issue-notifier/graphql-request": "workspace:*",
     "@issue-notifier/template-compiler": "workspace:*",
+    "@issue-notifier/template-compiler-plugin-html": "workspace:*",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
