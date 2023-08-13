@@ -89,27 +89,14 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
-  packages/template-compiler-plugin-github-css:
-    dependencies:
-      jsdom:
-        specifier: ^22.1.0
-        version: 22.1.0
-    devDependencies:
-      '@types/jsdom':
-        specifier: ^21.1.1
-        version: 21.1.1
-      typescript:
-        specifier: ^5.1.6
-        version: 5.1.6
-
   packages/template-compiler-plugin-html:
     dependencies:
+      '@issue-notifier/purgecss':
+        specifier: workspace:*
+        version: link:../purgecss
       jsdom:
         specifier: ^22.1.0
         version: 22.1.0
-      purgecss:
-        specifier: ^5.0.0
-        version: 5.0.0
     devDependencies:
       '@issue-notifier/template-compiler':
         specifier: workspace:*
