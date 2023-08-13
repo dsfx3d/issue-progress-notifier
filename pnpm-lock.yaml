@@ -76,6 +76,12 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/template-compiler-plugin-github-css:
+    devDependencies:
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   packages/template-compiler-plugin-html:
     devDependencies:
       '@issue-notifier/template-compiler':
