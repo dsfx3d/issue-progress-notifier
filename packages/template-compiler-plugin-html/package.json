@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.1.6",
-    "@issue-notifier/template-compiler": "workspace:*"
+    "@issue-notifier/template-compiler": "workspace:*",
+    "@types/jsdom": "^21.1.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "jsdom": "^22.1.0"
   }
 }
