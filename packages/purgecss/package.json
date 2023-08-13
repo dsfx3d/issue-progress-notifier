@@ -14,6 +14,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "fp-ts": "^2.16.1",
     "purgecss": "^5.0.0"
   }
 }
