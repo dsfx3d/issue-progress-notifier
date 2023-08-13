@@ -90,10 +90,17 @@ importers:
         version: 5.1.6
 
   packages/template-compiler-plugin-html:
+    dependencies:
+      jsdom:
+        specifier: ^22.1.0
+        version: 22.1.0
     devDependencies:
       '@issue-notifier/template-compiler':
         specifier: workspace:*
         version: link:../template-compiler
+      '@types/jsdom':
+        specifier: ^21.1.1
+        version: 21.1.1
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
@@ -112,6 +119,9 @@ importers:
       '@issue-notifier/template-compiler':
         specifier: workspace:*
         version: link:../template-compiler
+      '@issue-notifier/template-compiler-plugin-github-css':
+        specifier: workspace:*
+        version: link:../template-compiler-plugin-github-css
       '@issue-notifier/template-compiler-plugin-html':
         specifier: workspace:*
         version: link:../template-compiler-plugin-html
