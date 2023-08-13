@@ -3,11 +3,11 @@ import {Issue} from "@ipn/templates";
 import {createCompileTask} from "@issue-notifier/template-compiler";
 import {githubMarkdownCss} from "./githubMarkdownCss";
 import {
-  insertStyles,
+  insertInternalStyles,
   wrapHtmlDocument,
 } from "@issue-notifier/template-compiler-plugin-html";
 
 export const issueCompiler = (issue: GetIssueQuery) =>
   createCompileTask({
-    plugins: [wrapHtmlDocument, insertStyles(githubMarkdownCss)],
+    plugins: [wrapHtmlDocument, insertInternalStyles(githubMarkdownCss)],
   })(Issue(issue));
