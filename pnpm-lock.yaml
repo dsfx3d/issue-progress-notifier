@@ -94,6 +94,9 @@ importers:
       '@issue-notifier/purgecss':
         specifier: workspace:*
         version: link:../purgecss
+      fp-ts:
+        specifier: ^2.16.1
+        version: 2.16.1
       jsdom:
         specifier: ^22.1.0
         version: 22.1.0
