@@ -2,7 +2,7 @@ import {JSDOM} from "jsdom";
 import {type TPlugin} from "@issue-notifier/template-compiler";
 import {getOrCreateHead} from "./getOrCreateHead";
 
-export function insertInternalStyles(css: string): TPlugin<string> {
+export function insertInternalStyleTag(css: string): TPlugin<string> {
   return async html => {
     const dom = new JSDOM(html);
     const document = dom.window.document;
