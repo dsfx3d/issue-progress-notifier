@@ -1,5 +1,5 @@
 {
-  "name": "@issue-notifier/template-compiler-plugin-html",
+  "name": "@issue-notifier/purgecss",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -11,13 +11,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@issue-notifier/template-compiler": "workspace:*",
-    "@types/jsdom": "^21.1.1",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@issue-notifier/purgecss": "workspace:*",
     "fp-ts": "^2.16.1",
-    "jsdom": "^22.1.0"
+    "purgecss": "^5.0.0"
   }
 }

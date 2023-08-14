@@ -1,3 +1,4 @@
 export * from "./getOrCreateHead";
-export * from "./insertInternalStyles";
+export * from "./insertInternalStyleTag";
+export * from "./purgeInternalCss";
 export * from "./wrapHtmlDocument";
