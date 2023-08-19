@@ -10,9 +10,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.46.0",
-    "eslint-config-dsfx3d": "^0.1.2",
-    "prettier": "^3.0.1",
+    "eslint": "^8.47.0",
+    "eslint-config-dsfx3d": "^0.1.3",
+    "prettier": "^3.0.2",
     "typescript": "^5.1.6"
   }
 }
