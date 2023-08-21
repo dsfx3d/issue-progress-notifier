@@ -1,11 +1,10 @@
-import {Context} from "@actions/github/lib/context";
-import {GraphQLClient} from "graphql-request";
+import {TEmailTemplate} from "./TEmailTemplate";
+import {TaskEither} from "fp-ts/lib/TaskEither";
 import {Transporter} from "nodemailer";
 import {type env} from "./env";
 
 export type TProgramDeps = {
-  envVars: typeof env;
-  context: Context;
-  client: GraphQLClient;
-  transporter: Transporter;
+  readonly envVars: typeof env;
+  readonly toEmailTemplate: TaskEither<Error, TEmailTemplate>;
+  readonly transporter: Transporter;
 };
