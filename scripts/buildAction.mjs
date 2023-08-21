@@ -8,5 +8,5 @@ buildSync({
   target: "node16",
   minify: true,
   sourcemap: false,
-  jsx: "preserve",
+  jsx: "transform",
 });
