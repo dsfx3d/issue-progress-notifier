@@ -11,9 +11,15 @@ const run = program({
 });
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
-run().then(result => {
-  if (!result.success) {
-    console.error(result.error);
-    throw result.error;
-  }
-});
+run()
+  .then(result => {
+    if (!result.success) {
+      console.error(result.error);
+      throw result.error;
+    }
+  })
+  // eslint-disable-next-line unicorn/prefer-top-level-await
+  .catch(error => {
+    console.error(error);
+    throw error;
+  });
