@@ -26,7 +26,7 @@ export const toIssueEmailTemplate: (
         Issue({repository}),
         htmlCompiler,
         map(html => ({
-          subject: `${repository?.issue?.titleHTML}`,
+          subject: `${repository?.issue?.author}`,
           html,
         })),
       ),

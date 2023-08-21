@@ -1,7 +1,7 @@
 import {JSDOM} from "jsdom";
 import {TPlugin} from "@issue-notifier/template-compiler";
 import {insertInternalStyleTag} from "./insertInternalStyleTag";
-import {purgeCss} from "@issue-notifier/purgecss";
+import {purgeCss} from "./purgeCss";
 import {removeAll} from "./removeAll";
 import {toInternalCss} from "./toInternalCss";
 

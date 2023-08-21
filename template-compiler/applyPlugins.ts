@@ -11,5 +11,6 @@ export function applyPlugins<TInput extends TCompilerInput>(
   return input =>
     plugins
       .map(plugin => flatMap(applyPlugin(plugin)))
+      // eslint-disable-next-line unicorn/no-array-reduce
       .reduce((acc, plugin) => pipe(acc, plugin), of<Error, TInput>(input));
 }

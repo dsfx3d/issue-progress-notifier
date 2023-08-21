@@ -9,7 +9,7 @@ export function insertInternalStyleTag(css: string): TPlugin<string> {
     const head = getOrCreateHead(document);
     const style = document.createElement("style");
     style.textContent = css;
-    head.appendChild(style);
+    head.append(style);
     return dom.serialize();
   };
 }
