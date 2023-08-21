@@ -2,36 +2,36 @@
   "name": "issue-notifier-action",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm lint && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@issue-notifier/graphql": "workspace:*",
-    "typed-html": "^3.0.1",
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@graphql-typed-document-node/core": "^3.2.0",
+    "@issue-notifier/graphql": "workspace:*",
     "fp-ts": "^2.16.1",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
-    "nodemailer": "^6.9.4",
-    "ts-dotenv": "^0.9.1",
-    "purgecss": "^5.0.0",
-    "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1",
     "html-minifier-terser": "^7.2.0",
-    "jsdom": "^22.1.0"
+    "jsdom": "^22.1.0",
+    "nodemailer": "^6.9.4",
+    "purgecss": "^5.0.0",
+    "ts-dotenv": "^0.9.1",
+    "typed-html": "^3.0.1"
   },
   "devDependencies": {
+    "@types/html-minifier-terser": "^7.0.0",
+    "@types/jsdom": "^21.1.1",
+    "@types/nodemailer": "^6.4.9",
+    "esbuild": "^0.19.2",
     "eslint": "^8.47.0",
     "eslint-config-dsfx3d": "^0.1.3",
     "prettier": "^3.0.2",
-    "@types/nodemailer": "^6.4.9",
-    "@types/html-minifier-terser": "^7.0.0",
-    "@types/jsdom": "^21.1.1",
     "typescript": "^5.1.6"
   }
 }
