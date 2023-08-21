@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@issue-notifier/graphql": "workspace:*",
+    "typed-html": "^3.0.1"
+  },
   "devDependencies": {
     "eslint": "^8.47.0",
     "eslint-config-dsfx3d": "^0.1.3",

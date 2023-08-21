@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@issue-notifier/graphql':
+        specifier: workspace:*
+        version: link:packages/graphql
+      typed-html:
+        specifier: ^3.0.1
+        version: 3.0.1
     devDependencies:
       eslint:
         specifier: ^8.47.0
@@ -47,9 +54,6 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.8.0)
-      '@issue-notifier/templates':
-        specifier: workspace:*
-        version: link:../templates
       '@issue-notifier/graphql':
         specifier: workspace:*
         version: link:../graphql
@@ -59,6 +63,9 @@ importers:
       '@issue-notifier/template-compiler-plugin-html':
         specifier: workspace:*
         version: link:../template-compiler-plugin-html
+      '@issue-notifier/templates':
+        specifier: workspace:*
+        version: link:../templates
       fp-ts:
         specifier: ^2.16.1
         version: 2.16.1
