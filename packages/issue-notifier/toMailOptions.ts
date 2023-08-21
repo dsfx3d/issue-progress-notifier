@@ -1,15 +1,11 @@
 import {Options} from "nodemailer/lib/mailer";
 import {Reader} from "fp-ts/lib/Reader";
 import {TEmailTemplate} from "./TEmailTemplate";
-import {env} from "./env";
 
-export const toMailOptions: Reader<
-  typeof env,
-  Reader<TEmailTemplate, Options>
-> =
-  envVars =>
+export const toMailOptions: Reader<string, Reader<TEmailTemplate, Options>> =
+  senderEmail =>
   ({html, subject: title}) => ({
-    from: envVars.SMTP_FROM,
+    from: senderEmail,
     to: [],
     subject: title,
     html,
