@@ -1,0 +1,6 @@
+name: Issue Progress Notifier
+description: Notify issue progress to subscriber emails
+
+runs:
+  using: "node16"
+  main: "action.js"
