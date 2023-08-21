@@ -7,7 +7,7 @@ import {toTransporter} from "./toTransporter";
 const run = program({
   senderEmail: env.SMTP_FROM,
   transporter: toTransporter(env),
-  toEmailTemplate: toIssueEmailTemplate(context, env.GITHUB_TOKEN),
+  emailTemplate: toIssueEmailTemplate(context, env.GITHUB_TOKEN),
 });
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

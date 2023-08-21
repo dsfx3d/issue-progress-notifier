@@ -4,6 +4,6 @@ import {Transporter} from "nodemailer";
 
 export type TProgramDeps = {
   readonly senderEmail: string;
-  readonly toEmailTemplate: TaskEither<Error, TEmailTemplate>;
+  readonly emailTemplate: TaskEither<Error, TEmailTemplate>;
   readonly transporter: Transporter;
 };

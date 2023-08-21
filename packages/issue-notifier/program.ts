@@ -10,10 +10,10 @@ import {toMailOptions} from "./toMailOptions";
 export const program: ReaderTask<TProgramDeps, TProgramResult> = ({
   senderEmail,
   transporter,
-  toEmailTemplate,
+  emailTemplate,
 }: TProgramDeps) =>
   pipe(
-    toEmailTemplate,
+    emailTemplate,
     map(toMailOptions(senderEmail)),
     flatMap(
       tryCatchK(sendEmail(transporter), reason => new Error(String(reason))),
