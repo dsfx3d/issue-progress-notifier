@@ -6,7 +6,7 @@ export const toMailOptions: Reader<string, Reader<TEmailTemplate, Options>> =
   senderEmail =>
   ({html, subject: title}) => ({
     from: senderEmail,
-    to: [],
+    to: [senderEmail],
     subject: title,
     html,
   });
