@@ -31,10 +31,8 @@
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
       "@issue-notifier/templates": ["templates/index.ts"],
-      "@issue-notifier/template-compiler": ["template-compiler/index.ts"],
-      "@issue-notifier/template-compiler-plugin-html": [
-        "template-compiler-plugin-html/index.ts"
-      ]
+      "@issue-notifier/lazypipe": ["lazypipe/index.ts"],
+      "@issue-notifier/lazypipe-html": ["lazypipe-html/index.ts"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

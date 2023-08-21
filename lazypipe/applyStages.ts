@@ -1,16 +1,15 @@
 import {ReaderTaskEither} from "fp-ts/lib/ReaderTaskEither";
-import {TCompilerInput} from "./TCompilerInput";
-import {TPlugin} from "./TPlugin";
-import {applyPlugin} from "./applyPlugin";
+import {TStage} from "./TStage";
+import {applyStage} from "./applyStage";
 import {flatMap, of} from "fp-ts/lib/TaskEither";
 import {pipe} from "fp-ts/lib/function";
 
-export function applyPlugins<TInput extends TCompilerInput>(
-  plugins: TPlugin<TInput>[],
+export function applyStages<TInput>(
+  plugins: TStage<TInput>[],
 ): ReaderTaskEither<TInput, Error, TInput> {
   return input =>
     plugins
-      .map(plugin => flatMap(applyPlugin(plugin)))
+      .map(plugin => flatMap(applyStage(plugin)))
       // eslint-disable-next-line unicorn/no-array-reduce
       .reduce((acc, plugin) => pipe(acc, plugin), of<Error, TInput>(input));
 }

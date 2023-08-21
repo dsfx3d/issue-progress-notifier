@@ -1,6 +1,6 @@
 import {type Options, minify as minifyHtml} from "html-minifier-terser";
-import {TPlugin} from "@issue-notifier/template-compiler";
+import {type TStage} from "@issue-notifier/lazypipe";
 
-export function minify(options: Options): TPlugin<string> {
+export function minify(options: Options): TStage<string> {
   return async html => minifyHtml(html, options);
 }

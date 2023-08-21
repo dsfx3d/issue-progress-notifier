@@ -1,6 +1,6 @@
-import {TPlugin} from "@issue-notifier/template-compiler";
+import {TStage} from "@issue-notifier/lazypipe";
 
-export const wrapHtmlDocument: TPlugin<string> = async input => {
+export const wrapHtmlDocument: TStage<string> = async input => {
   return `
   <!DOCTYPE html>
   <html lang="en">
