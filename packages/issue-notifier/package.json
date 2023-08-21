@@ -12,7 +12,7 @@
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.2.0",
     "@issue-notifier/graphql": "workspace:*",
-    "@ipn/templates": "workspace:*",
+    "@issue-notifier/templates": "workspace:*",
     "@issue-notifier/template-compiler": "workspace:*",
     "@issue-notifier/template-compiler-plugin-html": "workspace:*",
     "fp-ts": "^2.16.1",

@@ -47,7 +47,7 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.8.0)
-      '@ipn/templates':
+      '@issue-notifier/templates':
         specifier: workspace:*
         version: link:../templates
       '@issue-notifier/graphql':
