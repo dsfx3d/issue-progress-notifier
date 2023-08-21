@@ -5,7 +5,7 @@ import {toIssueEmailTemplate} from "./toIssueEmailTemplate";
 import {toTransporter} from "./toTransporter";
 
 const run = program({
-  envVars: env,
+  senderEmail: env.SMTP_FROM,
   transporter: toTransporter(env),
   toEmailTemplate: toIssueEmailTemplate(context, env.GITHUB_TOKEN),
 });

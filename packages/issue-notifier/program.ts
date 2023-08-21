@@ -8,13 +8,13 @@ import {sendEmail} from "./sendEmail";
 import {toMailOptions} from "./toMailOptions";
 
 export const program: ReaderTask<TProgramDeps, TProgramResult> = ({
-  envVars,
+  senderEmail,
   transporter,
   toEmailTemplate,
 }: TProgramDeps) =>
   pipe(
     toEmailTemplate,
-    map(toMailOptions(envVars)),
+    map(toMailOptions(senderEmail)),
     flatMap(
       tryCatchK(sendEmail(transporter), reason => new Error(String(reason))),
     ),
