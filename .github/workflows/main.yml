@@ -7,15 +7,13 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
+    environment: Issue Notifier Action
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Notify
         uses: ./
-        with:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SMTP_HOST: ${{ env.SMTP_HOST }}
-          SMTP_PORT: ${{ env.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_FROM: ${{ env.SMTP_FROM }}
