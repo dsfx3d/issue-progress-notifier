@@ -26,7 +26,7 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.8.0)
-      '@ipn/issues-gql':
+      '@issue-notifier/graphql':
         specifier: workspace:*
         version: link:../issues-gql
       '@ipn/templates':
@@ -141,7 +141,7 @@ importers:
 
   packages/templates:
     dependencies:
-      '@ipn/issues-gql':
+      '@issue-notifier/graphql':
         specifier: workspace:*
         version: link:../issues-gql
       typed-html:

@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as elements from "typed-html";
-import {GetIssueQuery} from "@ipn/issues-gql";
+import {GetIssueQuery} from "@issue-notifier/graphql";
 
 export function Issue({repository}: GetIssueQuery): string {
   return (

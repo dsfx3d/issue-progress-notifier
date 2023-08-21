@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@ipn/issues-gql": "workspace:*",
+    "@issue-notifier/graphql": "workspace:*",
     "@ipn/templates": "workspace:*",
     "@issue-notifier/template-compiler": "workspace:*",
     "@issue-notifier/template-compiler-plugin-html": "workspace:*",

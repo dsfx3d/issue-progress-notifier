@@ -1,5 +1,5 @@
 {
-  "name": "@ipn/issues-gql",
+  "name": "@issue-notifier/graphql",
   "version": "1.0.0",
   "description": "",
   "main": "lib/graphql.js",

@@ -14,7 +14,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@ipn/issues-gql": "workspace:*",
+    "@issue-notifier/graphql": "workspace:*",
     "typed-html": "^3.0.1"
   }
 }

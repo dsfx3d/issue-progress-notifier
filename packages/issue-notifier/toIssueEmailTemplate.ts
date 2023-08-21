@@ -1,5 +1,5 @@
 import {Context} from "@actions/github/lib/context";
-import {GetIssueDocument} from "@ipn/issues-gql";
+import {GetIssueDocument} from "@issue-notifier/graphql";
 import {Issue} from "@ipn/templates";
 import {TEmailTemplate} from "./TEmailTemplate";
 import {TaskEither, flatMap, map, tryCatch} from "fp-ts/lib/TaskEither";
