@@ -64,6 +64,9 @@ devDependencies:
   '@types/jsdom':
     specifier: ^21.1.1
     version: 21.1.1
+  '@types/lodash':
+    specifier: ^4.14.197
+    version: 4.14.197
   '@types/nodemailer':
     specifier: ^6.4.9
     version: 6.4.9
@@ -1809,6 +1812,10 @@ packages:
     dependencies:
       '@types/node': 20.4.9
     dev: false
+
+  /@types/lodash@4.14.197:
+    resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
+    dev: true
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
