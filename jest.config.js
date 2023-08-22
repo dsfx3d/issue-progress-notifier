@@ -14,4 +14,14 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageReporters: ["json", "lcov", "text", "clover"],
+  collectCoverageFrom: [
+    "**/*/*.{ts,js}",
+    "!**/*.d.ts",
+    "!graphql/lib/*",
+    "!**/node_modules/**",
+    "!coverage/**",
+  ],
 };
