@@ -11,5 +11,5 @@ export const purgeInternalCss: TStage<string> = async html => {
     css: toInternalCss(html),
   });
   const unstyledHtml = removeAll("style")(html);
-  return insertInternalStyleTag(purgedCss)(unstyledHtml);
+  return insertInternalStyleTag(async () => purgedCss)(unstyledHtml);
 };
