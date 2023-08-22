@@ -32,6 +32,9 @@ dependencies:
   jsdom:
     specifier: ^22.1.0
     version: 22.1.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   nodemailer:
     specifier: ^6.9.4
     version: 6.9.4
@@ -61,6 +64,9 @@ devDependencies:
   '@types/jsdom':
     specifier: ^21.1.1
     version: 21.1.1
+  '@types/lodash':
+    specifier: ^4.14.197
+    version: 4.14.197
   '@types/nodemailer':
     specifier: ^6.4.9
     version: 6.4.9
@@ -1806,6 +1812,10 @@ packages:
     dependencies:
       '@types/node': 20.4.9
     dev: false
+
+  /@types/lodash@4.14.197:
+    resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
+    dev: true
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
@@ -4667,7 +4677,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}

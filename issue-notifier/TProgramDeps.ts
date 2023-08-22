@@ -6,4 +6,5 @@ export type TProgramDeps = {
   readonly senderEmail: string;
   readonly emailTemplate: TaskEither<Error, TEmailTemplate>;
   readonly transporter: Transporter;
+  readonly recipients: string[];
 };
