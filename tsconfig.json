@@ -33,7 +33,8 @@
       "@issue-notifier/templates": ["templates/index.ts"],
       "@issue-notifier/lazypipe": ["lazypipe/index.ts"],
       "@issue-notifier/html-compiler": ["html-compiler/index.ts"],
-      "@issue-notifier/graphql": ["graphql/lib/graphql.ts"]
+      "@issue-notifier/graphql": ["graphql/lib/graphql.ts"],
+      "@issue-notifier/utils": ["utils/index.ts"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     "typeRoots": [
