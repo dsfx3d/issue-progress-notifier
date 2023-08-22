@@ -6,7 +6,7 @@
     "generate": "graphql-codegen --config codegen.ts",
     "build": "pnpm generate && pnpm lint && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "test": "jest --coverage"
+    "coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
