@@ -3,7 +3,7 @@ import {GetIssueDocument} from "@issue-notifier/graphql";
 import {Issue} from "@issue-notifier/templates";
 import {TEmailTemplate} from "./TEmailTemplate";
 import {TaskEither, flatMap, map, tryCatch} from "fp-ts/lib/TaskEither";
-import {htmlCompiler} from "@issue-notifier/lazypipe-html";
+import {htmlCompiler} from "@issue-notifier/html-compiler";
 import {pipe} from "fp-ts/lib/function";
 import {toGraphQLClient} from "./toGraphQLClient";
 
