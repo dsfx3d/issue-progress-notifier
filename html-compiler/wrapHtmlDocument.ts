@@ -1,8 +1,7 @@
 import {TStage} from "@issue-notifier/lazypipe";
 
 export const wrapHtmlDocument: TStage<string> = async input => {
-  return `
-  <!DOCTYPE html>
+  return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
