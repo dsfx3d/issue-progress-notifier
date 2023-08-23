@@ -22,5 +22,6 @@ module.exports = {
     "!graphql/lib/*",
     "!**/node_modules/**",
     "!coverage/**",
+    "!**/*/index.{ts,js}",
   ],
 };
