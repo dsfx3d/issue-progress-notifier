@@ -1,5 +1,5 @@
 import {appendTag} from "./appendTag";
-import {createLazyPipe} from "../lazypipe";
+import {createLazyPipe} from "../lazypipe/createLazyPipe";
 import {minify} from "html-minifier-terser";
 import {purgeCss} from "./purgeCss";
 import {wrapHtmlDocument} from "./wrapHtmlDocument";

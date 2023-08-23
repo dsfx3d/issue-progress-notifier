@@ -1,9 +1,10 @@
 import {context} from "@actions/github";
-import {emailRegex, uniqueMatchAll} from "../utils";
+import {emailRegex} from "../utils/emailRegex";
 import {env} from "./env";
 import {program} from "./program";
 import {toIssueEmailTemplate} from "./toIssueEmailTemplate";
 import {toTransporter} from "./toTransporter";
+import {uniqueMatchAll} from "../utils/uniqueMatchAll";
 
 const run = program({
   senderEmail: env.SMTP_FROM,

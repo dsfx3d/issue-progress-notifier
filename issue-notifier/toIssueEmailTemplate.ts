@@ -1,9 +1,9 @@
 import {Context} from "@actions/github/lib/context";
 import {GetIssueDocument} from "../graphql/lib/graphql";
-import {Issue} from "../templates";
+import {Issue} from "../templates/Issue";
 import {TEmailTemplate} from "./TEmailTemplate";
 import {TaskEither, flatMap, map, tryCatch} from "fp-ts/lib/TaskEither";
-import {htmlCompiler} from "../html-compiler";
+import {htmlCompiler} from "../html-compiler/htmlCompiler";
 import {pipe} from "fp-ts/lib/function";
 import {toGraphQLClient} from "./toGraphQLClient";
 
