@@ -24,4 +24,7 @@ module.exports = {
     "!coverage/**",
     "!**/*/index.{ts,js}",
   ],
+  moduleNameMapper: {
+    ...require("tsconfig-paths-jest")(require("./tsconfig.json")),
+  },
 };
