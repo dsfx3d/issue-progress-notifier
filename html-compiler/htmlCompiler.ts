@@ -1,7 +1,8 @@
 import {appendTag} from "./appendTag";
 import {createLazyPipe} from "@issue-notifier/lazypipe";
-import {minify, wrapHtmlDocument} from "@issue-notifier/html-compiler";
+import {minify} from "html-minifier-terser";
 import {purgeCss} from "./purgeCss";
+import {wrapHtmlDocument} from "./wrapHtmlDocument";
 import generateGitHubCss from "generate-github-markdown-css";
 
 export const htmlCompiler = createLazyPipe(
@@ -17,7 +18,5 @@ export const htmlCompiler = createLazyPipe(
       return style;
     },
   }),
-  minify({
-    minifyCSS: true,
-  }),
+  async html => minify(html, {minifyCSS: true}),
 );
