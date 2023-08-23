@@ -1,7 +1,6 @@
 import {ReaderTaskEither} from "fp-ts/lib/ReaderTaskEither";
 import {TStage} from "./TStage";
-import {applyStage} from "./applyStage";
-import {flatMap, of} from "fp-ts/lib/TaskEither";
+import {flatMap, of, tryCatchK} from "fp-ts/lib/TaskEither";
 import {pipe} from "fp-ts/lib/function";
 
 export function applyStages<TInput>(
@@ -9,7 +8,7 @@ export function applyStages<TInput>(
 ): ReaderTaskEither<TInput, Error, TInput> {
   return input =>
     plugins
-      .map(plugin => flatMap(applyStage(plugin)))
+      .map(stage => flatMap(tryCatchK(stage, error => error as Error)))
       // eslint-disable-next-line unicorn/no-array-reduce
-      .reduce((acc, plugin) => pipe(acc, plugin), of<Error, TInput>(input));
+      .reduce((acc, stage) => pipe(acc, stage), of<Error, TInput>(input));
 }
