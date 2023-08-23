@@ -1,21 +1,56 @@
+import {Reader} from "fp-ts/lib/Reader";
 import {emailRegex} from "./emailRegex";
 
-describe("emailRegex", () => {
-  test("matches valid email addresses", () => {
-    expect("test@example.com".match(emailRegex)).toBeTruthy();
-    expect("test.user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test-user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test_user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test@example.co.uk".match(emailRegex)).toBeTruthy();
-    expect("test@example.io".match(emailRegex)).toBeTruthy();
-  });
+type JestRegexMatcher = jest.JestMatchers<RegExpMatchArray | null>;
 
-  test("does not match invalid email addresses", () => {
-    expect("test@".match(emailRegex)).toBeFalsy();
-    expect("test@example".match(emailRegex)).toBeFalsy();
-    expect("test@.com".match(emailRegex)).toBeFalsy();
-    expect("test@example..com".match(emailRegex)).toBeFalsy();
-    expect("test@.example.com".match(emailRegex)).toBeFalsy();
-    expect("test@example.com.".match(emailRegex)).toBeFalsy();
-  });
+function toMatchers(regex: RegExp, inputs: string[]): JestRegexMatcher[] {
+  return inputs.map(input => expect(input.match(regex)));
+}
+
+const createBulkMatcher =
+  (regex: RegExp) =>
+  (
+    name: string,
+    expectation: Reader<JestRegexMatcher, void>,
+    inputs: string[],
+  ) => {
+    test(name, () => {
+      for (const matcher of toMatchers(regex, inputs)) {
+        expectation(matcher);
+      }
+    });
+  };
+
+const tests: [string, Reader<JestRegexMatcher, void>, string[]][] = [
+  [
+    "recognizes valid email addresses",
+    result => result.toBeTruthy(),
+    [
+      "test@example.com",
+      "test.user@example.com",
+      "test-user@example.com",
+      "test_user@example.com",
+      "test@example.co.uk",
+      "test@example.io",
+    ],
+  ],
+  [
+    "recognizes invalid email addresses",
+    result => result.toBeFalsy(),
+    [
+      "test@",
+      "test@example",
+      "test@.com",
+      "test@example..com",
+      "test@.example.com",
+      "test@example.com.",
+    ],
+  ],
+];
+
+describe("emailRegex validation", () => {
+  const emailMatcher = createBulkMatcher(emailRegex);
+  for (const [name, expectation, inputs] of tests) {
+    emailMatcher(name, expectation, inputs);
+  }
 });
