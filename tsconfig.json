@@ -3,14 +3,6 @@
     "target": "es2016",
     "jsx": "preserve",
     "module": "commonjs",
-    "baseUrl": "./",
-    "paths": {
-      "@issue-notifier/templates": ["templates/index.ts"],
-      "@issue-notifier/lazypipe": ["lazypipe/index.ts"],
-      "@issue-notifier/html-compiler": ["html-compiler/index.ts"],
-      "@issue-notifier/graphql": ["graphql/lib/graphql.ts"],
-      "@issue-notifier/utils": ["utils/index.ts"]
-    },
     "typeRoots": ["./types", "./node_modules/@types"],
     "types": ["generate-github-markdown-css", "jest"],
     "declaration": true,

@@ -1,11 +1,11 @@
 import {appendTag} from "./appendTag";
-import {createLazyPipe} from "@issue-notifier/lazypipe";
+import {createLazyPipe} from "../lazypipe";
 import {minify} from "html-minifier-terser";
 import {purgeCss} from "./purgeCss";
 import {wrapHtmlDocument} from "./wrapHtmlDocument";
 import generateGitHubCss from "generate-github-markdown-css";
 
-export const htmlCompiler = createLazyPipe(
+export const htmlCompiler = createLazyPipe<string>(
   wrapHtmlDocument,
   appendTag({
     getParent: document => document.querySelector("head"),

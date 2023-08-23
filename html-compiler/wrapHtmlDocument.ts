@@ -1,4 +1,4 @@
-import {TStage} from "@issue-notifier/lazypipe";
+import {TStage} from "../lazypipe";
 
 export const wrapHtmlDocument: TStage<string> = async input => {
   return `<!DOCTYPE html>
