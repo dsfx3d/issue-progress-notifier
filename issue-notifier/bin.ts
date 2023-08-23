@@ -1,5 +1,5 @@
 import {context} from "@actions/github";
-import {emailRegex, uniqueMatchAll} from "@issue-notifier/utils";
+import {emailRegex, uniqueMatchAll} from "../utils";
 import {env} from "./env";
 import {program} from "./program";
 import {toIssueEmailTemplate} from "./toIssueEmailTemplate";
