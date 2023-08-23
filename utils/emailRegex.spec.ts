@@ -1,21 +1,33 @@
 import {emailRegex} from "./emailRegex";
 
-describe("emailRegex", () => {
-  test("matches valid email addresses", () => {
-    expect("test@example.com".match(emailRegex)).toBeTruthy();
-    expect("test.user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test-user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test_user@example.com".match(emailRegex)).toBeTruthy();
-    expect("test@example.co.uk".match(emailRegex)).toBeTruthy();
-    expect("test@example.io".match(emailRegex)).toBeTruthy();
+describe("emailRegex validation", () => {
+  test("recognizes valid email addresses", () => {
+    const validEmails = [
+      "test@example.com",
+      "test.user@example.com",
+      "test-user@example.com",
+      "test_user@example.com",
+      "test@example.co.uk",
+      "test@example.io",
+    ];
+
+    for (const email of validEmails) {
+      expect(email.match(emailRegex)).toBeTruthy();
+    }
   });
 
-  test("does not match invalid email addresses", () => {
-    expect("test@".match(emailRegex)).toBeFalsy();
-    expect("test@example".match(emailRegex)).toBeFalsy();
-    expect("test@.com".match(emailRegex)).toBeFalsy();
-    expect("test@example..com".match(emailRegex)).toBeFalsy();
-    expect("test@.example.com".match(emailRegex)).toBeFalsy();
-    expect("test@example.com.".match(emailRegex)).toBeFalsy();
+  test("recognizes invalid email addresses", () => {
+    const invalidEmails = [
+      "test@",
+      "test@example",
+      "test@.com",
+      "test@example..com",
+      "test@.example.com",
+      "test@example.com.",
+    ];
+
+    for (const email of invalidEmails) {
+      expect(email.match(emailRegex)).toBeFalsy();
+    }
   });
 });
