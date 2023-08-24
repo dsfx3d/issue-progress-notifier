@@ -8,8 +8,6 @@ buildSync({
   target: "node16",
   minify: true,
   sourcemap: false,
-  jsx: "react",
-  jsxFactory: "elements.createElement",
   logLevel: "error",
   external: ["jsdom"],
 });
