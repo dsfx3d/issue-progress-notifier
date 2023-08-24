@@ -1,7 +1,7 @@
 import {buildSync} from "esbuild";
 
 buildSync({
-  entryPoints: ["issue-notifier/bin.ts"],
+  entryPoints: ["bin.ts"],
   bundle: true,
   outfile: "action.js",
   platform: "node",
