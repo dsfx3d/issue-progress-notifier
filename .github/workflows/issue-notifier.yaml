@@ -14,4 +14,5 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
-      - uses: .
+      - name: Send notification emails
+        uses: ./
