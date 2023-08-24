@@ -1,0 +1,17 @@
+name: Issue Progress Notifier
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    environment: Issue Notifier Action
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+      - uses: .
