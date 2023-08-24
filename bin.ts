@@ -32,15 +32,11 @@ const transporter = createTransport({
   },
 } as SMTPTransport.Options);
 
-console.log("transporter", transporter);
-
 const client = new GraphQLClient(context.graphqlUrl, {
   headers: {
     Authorization: `Bearer ${env.ACCESS_TOKEN}`,
   },
 });
-
-console.log("client", client);
 
 const fetchData = (): Promise<GetIssueQuery> =>
   client.request(GetIssueDocument, {
@@ -48,9 +44,6 @@ const fetchData = (): Promise<GetIssueQuery> =>
     owner: context.repo.owner,
     name: context.issue.repo,
   });
-
-// eslint-disable-next-line unicorn/prefer-top-level-await
-fetchData().then(console.log).catch(console.error);
 
 const sendMail = async (options: Mail.Options) => transporter.sendMail(options);
 
