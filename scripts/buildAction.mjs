@@ -10,5 +10,5 @@ buildSync({
   sourcemap: false,
   jsx: "transform",
   treeShaking: true,
-  logLevel: "verbose",
+  logLevel: "error",
 });
