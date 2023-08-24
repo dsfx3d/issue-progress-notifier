@@ -8,7 +8,7 @@ buildSync({
   target: "node16",
   minify: true,
   sourcemap: false,
-  jsx: "transform",
+  jsx: "preserve",
   treeShaking: true,
   logLevel: "error",
   external: ["jsdom"],
