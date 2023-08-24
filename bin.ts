@@ -56,7 +56,7 @@ const program = pipe(
       map(html => ({
         from: env.SMTP_FROM,
         to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
-        subject: `${data.repository?.issue?.author}`,
+        subject: `${data.repository?.issue?.title}`,
         html,
       })),
     ),
