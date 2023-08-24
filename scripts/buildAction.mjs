@@ -11,4 +11,5 @@ buildSync({
   jsx: "transform",
   treeShaking: true,
   logLevel: "error",
+  external: ["jsdom"],
 });
