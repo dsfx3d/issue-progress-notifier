@@ -1,1 +1,1 @@
-export const emailRegex = /^(?!.*\.\.)[\w.-]+@(?!\.)[\w.-]+\.[\w-]+$/i;
+export const emailRegex = /^(?!.*\.\.)[\w.-]+@(?!\.)[\w.-]+\.[\w-]+$/gi;
