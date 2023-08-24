@@ -1,7 +1,7 @@
 import {JSDOM} from "jsdom";
 import {Reader} from "fp-ts/lib/Reader";
 import {TAppendTagRequest} from "./TAppendTagRequest";
-import {TStage} from "../lazypipe/TStage";
+import {TStage} from "../utils/TStage";
 
 export const appendTag: Reader<TAppendTagRequest, TStage<string>> =
   ({getParent, toElement}) =>

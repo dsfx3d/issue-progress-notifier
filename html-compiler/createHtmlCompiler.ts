@@ -1,6 +1,6 @@
 import {THtmlCompilerOptions} from "./THtmlCompilerOptions";
 import {appendTag} from "./appendTag";
-import {createLazyPipe} from "../lazypipe/createLazyPipe";
+import {createLazyPipe} from "../utils/createLazyPipe";
 import {minify} from "html-minifier-terser";
 import {purgeCss} from "./purgeCss";
 import {wrapHtmlDocument} from "./wrapHtmlDocument";

@@ -1,4 +1,4 @@
-import {TStage} from "../lazypipe";
+import {TStage} from "../utils/TStage";
 
 export const wrapHtmlDocument: TStage<string> = async input => {
   return `<!DOCTYPE html>
