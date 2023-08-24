@@ -72,6 +72,13 @@ const program = pipe(
 // eslint-disable-next-line unicorn/prefer-top-level-await
 program()
   .then(result => {
+    console.log(
+      "recipients",
+      `${context.payload.issue?.body}`,
+      JSON.stringify(
+        uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
+      ),
+    );
     if (!result.success) {
       console.error(result.reason);
       throw new Error(String(result.reason));
