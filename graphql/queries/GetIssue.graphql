@@ -1,6 +1,7 @@
 query GetIssue($name: String!, $owner: String!, $issue: Int!) {
   repository(name: $name, owner: $owner) {
     issue(number: $issue) {
+      title
       bodyHTML
       author {
         login
