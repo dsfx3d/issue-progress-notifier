@@ -8,9 +8,9 @@ buildSync({
   target: "node16",
   minify: true,
   sourcemap: false,
+  jsx: "react",
   jsxFactory: "html",
   jsxFragment: "html",
-  treeShaking: true,
   logLevel: "error",
   external: ["jsdom"],
 });
