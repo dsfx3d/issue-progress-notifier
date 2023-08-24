@@ -36,7 +36,7 @@ console.log("transporter", transporter);
 
 const client = new GraphQLClient(context.graphqlUrl, {
   headers: {
-    Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+    Authorization: `Bearer ${env.ACCESS_TOKEN}`,
   },
 });
 
