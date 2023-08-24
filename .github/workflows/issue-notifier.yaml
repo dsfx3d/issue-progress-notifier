@@ -15,3 +15,7 @@ jobs:
           node-version: 16
       - name: Send notification emails
         uses: ./
+        env:
+          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
