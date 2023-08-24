@@ -1,9 +1,8 @@
 import {GetIssueDocument, GetIssueQuery} from "./graphql/lib/graphql";
 import {GraphQLClient} from "graphql-request";
 import {Issue} from "./templates/Issue";
-import {Reader} from "fp-ts/lib/Reader";
-import {TransportOptions, createTransport} from "nodemailer";
 import {context} from "@actions/github";
+import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
 import {flatMap, map, matchE, tryCatch, tryCatchK} from "fp-ts/lib/TaskEither";
 import {htmlCompiler} from "./html-compiler/htmlCompiler";
@@ -53,43 +52,39 @@ const fetchData = (): Promise<GetIssueQuery> =>
 // eslint-disable-next-line unicorn/prefer-top-level-await
 fetchData().then(console.log).catch(console.error);
 
-// const sendMail = async (options: Mail.Options) => transporter.sendMail(options);
+const sendMail = async (options: Mail.Options) => transporter.sendMail(options);
 
-// const program = <TData>(
-//   fetchData: TaskEither<TData>,
-//   template: Reader<TData, string>,
-// ) =>
-//   pipe(
-//     tryCatch(fetchData, identity),
-//     flatMap(data =>
-//       pipe(
-//         template(data),
-//         htmlCompiler,
-//         map(html => ({
-//           from: env.SMTP_FROM,
-//           to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
-//           subject: `${data.repository?.issue?.author}`,
-//           html,
-//         })),
-//       ),
-//     ),
-//     flatMap(tryCatchK(sendMail, identity)),
-//     matchE<unknown, unknown, TSendEmailResult>(
-//       reason => of({success: false, reason}),
-//       () => of({success: true}),
-//     ),
-//   );
+const program = pipe(
+  tryCatch(fetchData, identity),
+  flatMap(data =>
+    pipe(
+      Issue(data),
+      htmlCompiler,
+      map(html => ({
+        from: env.SMTP_FROM,
+        to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
+        subject: `${data.repository?.issue?.author}`,
+        html,
+      })),
+    ),
+  ),
+  flatMap(tryCatchK(sendMail, identity)),
+  matchE<unknown, unknown, TSendEmailResult>(
+    reason => of({success: false, reason}),
+    () => of({success: true}),
+  ),
+);
 
-// // eslint-disable-next-line unicorn/prefer-top-level-await
-// program()
-//   .then(result => {
-//     if (!result.success) {
-//       console.error(result.reason);
-//       throw new Error(String(result.reason));
-//     }
-//   })
-//   // eslint-disable-next-line unicorn/prefer-top-level-await
-//   .catch(error => {
-//     console.error(error);
-//     throw error;
-//   });
+// eslint-disable-next-line unicorn/prefer-top-level-await
+program()
+  .then(result => {
+    if (!result.success) {
+      console.error(result.reason);
+      throw new Error(String(result.reason));
+    }
+  })
+  // eslint-disable-next-line unicorn/prefer-top-level-await
+  .catch(error => {
+    console.error(error);
+    throw error;
+  });
