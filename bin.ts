@@ -2,7 +2,6 @@ import {GetIssueDocument, GetIssueQuery} from "./graphql/lib/graphql";
 import {GraphQLClient} from "graphql-request";
 import {Issue} from "./templates/Issue";
 import {Reader} from "fp-ts/lib/Reader";
-import {TaskEither} from "fp-ts/Task";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
