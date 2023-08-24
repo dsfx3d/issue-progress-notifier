@@ -2,7 +2,7 @@ name: Issue Progress Notifier
 description: Notify issue progress to subscriber emails
 
 runs:
-  using: "composite"
+  using: composite
   steps:
     - run: npm install -g pnpm
       shell: bash
