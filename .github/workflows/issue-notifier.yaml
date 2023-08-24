@@ -19,6 +19,6 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_HOST: ${{ env.SMTP_HOST }}
-          SMTP_PORT: ${{ env.SMTP_PORT }}
-          SMTP_FROM: ${{ env.SMTP_FROM }}
+          SMTP_HOST: email-smtp.ap-south-1.amazonaws.com
+          SMTP_PORT: 465
+          SMTP_FROM: dsfx3d@gmail.com
