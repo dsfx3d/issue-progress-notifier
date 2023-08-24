@@ -5,13 +5,14 @@ import {Reader} from "fp-ts/lib/Reader";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
-import {env} from "./env";
 import {flatMap, map, matchE, tryCatch, tryCatchK} from "fp-ts/lib/TaskEither";
 import {htmlCompiler} from "./html-compiler/htmlCompiler";
 import {identity, pipe} from "fp-ts/lib/function";
 import {of} from "fp-ts/lib/Task";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import Mail from "nodemailer/lib/mailer";
+
+const env = process.env;
 
 type TSendEmailResult =
   | {
