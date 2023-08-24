@@ -9,4 +9,5 @@ buildSync({
   minify: true,
   sourcemap: false,
   jsx: "transform",
+  treeShaking: true,
 });
