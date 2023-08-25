@@ -11,8 +11,7 @@ import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const action = toAction(
-  () => context,
-  context =>
+  () =>
     new GraphQLClient(context.graphqlUrl, {
       headers: {
         Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
