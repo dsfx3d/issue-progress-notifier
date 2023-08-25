@@ -3,7 +3,7 @@ import {Reader} from "fp-ts/lib/Reader";
 import {TAppendTagRequest} from "./TAppendTagRequest";
 import {TStage} from "../utils/TStage";
 
-export const appendTag: Reader<TAppendTagRequest, TStage<string>> =
+export const appendElement: Reader<TAppendTagRequest, TStage<string>> =
   ({getParent, toElement}) =>
   async html => {
     const dom = new JSDOM(html);

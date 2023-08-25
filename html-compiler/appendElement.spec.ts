@@ -1,5 +1,5 @@
 import {Reader} from "fp-ts/lib/Reader";
-import {appendTag} from "./appendTag";
+import {appendElement} from "./appendElement";
 
 type Matcher = jest.JestMatchers<Promise<string>>;
 type Test = [
@@ -40,10 +40,10 @@ const tests: Test[] = [
 const testRunner = (tests: Test[]) => {
   for (const [title, parent, getParent, toChild, expectation] of tests) {
     it(title, async () => {
-      const transform = appendTag({getParent, toElement: toChild});
+      const transform = appendElement({getParent, toElement: toChild});
       expectation(expect(transform(parent)));
     });
   }
 };
 
-describe("appendTag", () => testRunner(tests));
+describe(appendElement.name, () => testRunner(tests));

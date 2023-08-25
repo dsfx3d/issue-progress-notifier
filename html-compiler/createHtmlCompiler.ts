@@ -1,5 +1,5 @@
 import {THtmlCompilerOptions} from "./THtmlCompilerOptions";
-import {appendTag} from "./appendTag";
+import {appendElement} from "./appendElement";
 import {createLazyPipe} from "../utils/createLazyPipe";
 import {minify} from "html-minifier-terser";
 import {purgeCss} from "./purgeCss";
@@ -8,7 +8,7 @@ import {wrapHtmlDocument} from "./wrapHtmlDocument";
 export const createHtmlCompiler = (options: THtmlCompilerOptions) =>
   createLazyPipe<string>(
     wrapHtmlDocument,
-    appendTag({
+    appendElement({
       getParent: document => document.querySelector("head"),
       toElement: async document => {
         const style = document.createElement("style");
