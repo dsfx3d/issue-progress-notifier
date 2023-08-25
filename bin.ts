@@ -3,7 +3,6 @@ import {GraphQLClient} from "graphql-request";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
-import {sendMail} from "./action/sendMail";
 import {toAction} from "./action/toAction";
 import {toIssueTemplate} from "./issue/toIssueTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
@@ -29,7 +28,7 @@ const action = toAction(
     subject: `${data.repository?.issue?.title}`,
     html: toIssueTemplate(data),
   }),
-  sendMail(() =>
+  options =>
     createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
@@ -37,8 +36,7 @@ const action = toAction(
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-    } as SMTPTransport.Options),
-  ),
+    } as SMTPTransport.Options).sendMail(options),
 );
 // eslint-disable-next-line unicorn/prefer-top-level-await
 action().then(result => {
