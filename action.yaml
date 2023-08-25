@@ -1,14 +1,6 @@
-name: Issue Progress Notifier
-description: Notify issue progress to subscriber emails
+name: Progress Notifier
+description: Notify repo events to subscribers
 
 runs:
-  using: composite
-  steps:
-    - run: npm install -g pnpm
-      shell: bash
-    - run: pnpm install
-      shell: bash
-    - run: pnpm build
-      shell: bash
-    - run: node action.js
-      shell: bash
+  using: docker
+  image: Dockerfile
