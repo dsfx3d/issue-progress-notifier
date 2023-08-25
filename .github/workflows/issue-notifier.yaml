@@ -2,7 +2,7 @@ name: Issue Progress Notifier
 
 on:
   issues:
-    types: [opened, edited, closed, reopened]
+    types: [reopened]
 
 jobs:
   notify:
