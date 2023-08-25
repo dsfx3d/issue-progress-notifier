@@ -1,10 +1,10 @@
+import {GetIssueDocument} from "./lib/graphql";
 import {GraphQLClient} from "graphql-request";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
 import {sendMail} from "./action/sendMail";
 import {toAction} from "./action/toAction";
-import {toGetIssueThunk} from "./issue/toGetIssueThunk";
 import {toIssueTemplate} from "./issue/toIssueTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
@@ -25,11 +25,12 @@ const transporter = createTransport({
 } as SMTPTransport.Options);
 
 const action = toAction(
-  toGetIssueThunk(client, {
-    owner: context.repo.owner,
-    name: context.repo.repo,
-    issue: context.issue.number,
-  }),
+  () =>
+    client.request(GetIssueDocument, {
+      owner: context.repo.owner,
+      name: context.repo.repo,
+      issue: context.issue.number,
+    }),
   data => ({
     from: process.env.SMTP_USER,
     to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
