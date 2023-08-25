@@ -3,10 +3,17 @@ import {GraphQLClient} from "graphql-request";
 import {LazyArg, identity, pipe} from "fp-ts/lib/function";
 import {Reader} from "fp-ts/lib/Reader";
 import {TActionResult} from "./TActionResult";
-import {flatMap, fromIO, map, matchE, tryCatchK} from "fp-ts/lib/TaskEither";
-import {htmlCompiler} from "../html-compiler/htmlCompiler";
+import {
+  flatMap,
+  fromIO,
+  map,
+  matchE,
+  tryCatch,
+  tryCatchK,
+} from "fp-ts/lib/TaskEither";
 import {map as mapIO} from "fp-ts/lib/IO";
 import {of} from "fp-ts/lib/Task";
+import {toHtml} from "../html-compiler/toHtml";
 import Mail from "nodemailer/lib/mailer";
 
 // eslint-disable-next-line max-params
@@ -25,7 +32,7 @@ export function toAction<T>(
     map(toMailOptions),
     flatMap(options =>
       pipe(
-        htmlCompiler(options.html as string),
+        tryCatch(() => toHtml(options.html as string), identity),
         map(html => ({...options, html})),
       ),
     ),
