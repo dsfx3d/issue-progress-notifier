@@ -41,6 +41,6 @@ const action = toAction(
 // eslint-disable-next-line unicorn/prefer-top-level-await
 action().then(result => {
   if (!result.success) {
-    console.error(result.reason);
+    throw result.reason;
   }
 });
