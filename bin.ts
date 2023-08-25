@@ -9,23 +9,15 @@ import {toIssueTemplate} from "./issue/toIssueTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
-const client = new GraphQLClient(context.graphqlUrl, {
-  headers: {
-    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-  },
-});
-
-const transporter = createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-} as SMTPTransport.Options);
-
 const action = toAction(
-  () =>
+  () => context,
+  context =>
+    new GraphQLClient(context.graphqlUrl, {
+      headers: {
+        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+      },
+    }),
+  client =>
     client.request(GetIssueDocument, {
       owner: context.repo.owner,
       name: context.repo.repo,
@@ -37,7 +29,16 @@ const action = toAction(
     subject: `${data.repository?.issue?.title}`,
     html: toIssueTemplate(data),
   }),
-  sendMail(transporter),
+  sendMail(() =>
+    createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    } as SMTPTransport.Options),
+  ),
 );
 // eslint-disable-next-line unicorn/prefer-top-level-await
 action().then(result => {
