@@ -14,8 +14,7 @@ export function toAction<T>(
   sendMail: Reader<Mail.Options, Promise<unknown>>,
 ): Task<TActionResult> {
   return pipe(
-    clientIo,
-    fromIO,
+    fromIO(clientIo),
     flatMap(tryCatchK(fetchData, identity)),
     flatMap(tryCatchK(toMailOptions, identity)),
     flatMap(tryCatchK(sendMail, identity)),
