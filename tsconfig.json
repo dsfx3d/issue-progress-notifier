@@ -5,7 +5,7 @@
     "jsxFactory": "elements.createElement",
     "module": "commonjs",
     "typeRoots": ["./types", "./node_modules/@types"],
-    "types": ["generate-github-markdown-css", "jest"],
+    "types": ["generate-github-markdown-css", "jest", "css"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
