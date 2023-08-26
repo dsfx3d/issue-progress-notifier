@@ -1,7 +1,7 @@
 import {PurgeCSS} from "purgecss";
 import {TPurgeRequest} from "./TPurgeRequest";
 
-export async function purgeCss(request: TPurgeRequest): Promise<string> {
+export async function toPurgeCss(request: TPurgeRequest): Promise<string> {
   const [{css}] = await new PurgeCSS().purge({
     content: [
       {

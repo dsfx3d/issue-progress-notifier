@@ -1,5 +1,5 @@
 import {minify} from "html-minifier-terser";
-import {purgeCss} from "./purgeCss";
+import {toPurgeCss} from "./toPurgeCss";
 import generateGitHubCss from "generate-github-markdown-css";
 
 export async function toHtml(body: string): Promise<string> {
@@ -8,7 +8,7 @@ export async function toHtml(body: string): Promise<string> {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>${await purgeCss({
+      <style>${await toPurgeCss({
         html: body,
         css: await generateGitHubCss(),
       })}</style>
