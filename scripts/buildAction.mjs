@@ -10,4 +10,7 @@ buildSync({
   sourcemap: false,
   logLevel: "error",
   external: ["jsdom"],
+  loader: {
+    ".css": "text",
+  },
 });
