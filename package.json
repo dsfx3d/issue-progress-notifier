@@ -9,7 +9,8 @@
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "dev": "nodemon --exec ts-node template-dev/server.ts"
   },
   "keywords": [],
   "author": "",
