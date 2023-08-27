@@ -2,7 +2,7 @@
 import * as elements from "typed-html";
 import {GetIssueQuery} from "../lib/graphql";
 
-export function toIssueTemplate({repository}: GetIssueQuery): string {
+export function toGetIssueTemplate({repository}: GetIssueQuery): string {
   return (
     <div>
       <h1>Issue</h1>
