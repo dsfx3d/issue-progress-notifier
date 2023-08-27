@@ -3,10 +3,10 @@ import {GraphQLClient} from "graphql-request";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
-import {pipe} from "fp-ts/lib/function";
+import {getGitHubCss} from "./html-compiler/getGitHubCss";
 import {toAction} from "./action/toAction";
+import {toGetIssueTemplate} from "./issue/toGetIssueTemplate";
 import {toHtml} from "./html-compiler/toHtml";
-import {toIssueTemplate} from "./issue/toIssueTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
@@ -27,7 +27,10 @@ const action = toAction(
     from: process.env.SMTP_USER,
     to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
     subject: `${data.repository?.issue?.title}`,
-    html: await pipe(data, toIssueTemplate, toHtml),
+    html: await toHtml({
+      body: toGetIssueTemplate(data),
+      css: await getGitHubCss(),
+    }),
   }),
   options =>
     createTransport({
