@@ -12,6 +12,6 @@ COPY . .
 
 RUN pnpm build
 
-RUN chmod +x /action/entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT ["/action/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
