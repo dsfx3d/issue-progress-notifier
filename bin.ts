@@ -3,14 +3,14 @@ import {IssueOpenedDocument} from "./lib/graphql";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
-import {githubCss} from "./scripts/githubCss.mjs";
 import {readFile} from "node:fs/promises";
-import {tailwindCss} from "./scripts/tailwindCss.mjs";
 import {toAction} from "./action/toAction";
 import {toHtml} from "./html-compiler/toHtml";
 import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
+import githubCss from "./scripts/githubCss";
+import tailwindCss from "./scripts/tailwindCss";
 
 const action = toAction(
   () =>

@@ -1,6 +1,6 @@
-import {buildSync} from "esbuild";
+const esbuild = require("esbuild");
 
-buildSync({
+esbuild.buildSync({
   entryPoints: ["bin.ts"],
   bundle: true,
   outfile: "action.js",
