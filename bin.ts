@@ -46,8 +46,4 @@ ${await readFile("./lib/github.css", "utf8")}`,
     } as SMTPTransport.Options).sendMail(options),
 );
 
-action().then(result => {
-  if (!result.success) {
-    throw result.reason;
-  }
-});
+readFile("./lib/tailwind.css", "utf8").then(console.log);
