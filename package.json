@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "generate:tailwind": "node scripts/generateTailwindCss.mjs",
+    "generate:css": "node scripts/generateGitHubCss.mjs",
     "generate:graphql": "graphql-codegen --config codegen.ts",
-    "generate": "pnpm run generate:graphql && pnpm run generate:css",
+    "generate": "pnpm run /^generate:.*$/",
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
