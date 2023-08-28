@@ -1,5 +1,6 @@
 #!/bin/sh
 
 pwd
-ls -la
+cd /action
+
 node /action/action.js
