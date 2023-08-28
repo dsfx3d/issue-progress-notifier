@@ -1,7 +1,9 @@
 import {GetIssue} from "./mock-data/GetIssue";
 import {getGitHubCss} from "../html-compiler/getGitHubCss";
+import {readFile} from "node:fs/promises";
 import {toGetIssueTemplate} from "../issue/toGetIssueTemplate";
 import {toHtml} from "../html-compiler/toHtml";
+import {toIssueHead} from "../issue/toIssueHead";
 import express from "express";
 
 const app = express();
@@ -14,6 +16,16 @@ app.get("/issue", async (_, res) => {
     await toHtml({
       body: template,
       css: await getGitHubCss(),
+    }),
+  );
+});
+
+app.get("/issue/head", async (req, res) => {
+  const head = toIssueHead();
+  res.send(
+    await toHtml({
+      body: head,
+      css: await readFile("lib/tailwind.css", "utf8"),
     }),
   );
 });
