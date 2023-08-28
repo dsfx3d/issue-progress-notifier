@@ -5,6 +5,7 @@ import tailwindcss from "tailwindcss";
 
 const generateTailwindCss = async () => {
   const inputCss = `
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 `;
