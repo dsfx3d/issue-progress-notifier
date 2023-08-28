@@ -11,7 +11,9 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
     "coverage": "jest --coverage",
-    "dev": "nodemon --exec ts-node template-dev/server.ts"
+    "watch:template": "nodemon --exec ts-node template-dev/server.ts",
+    "watch:tailwind": "nodemon -e tsx scripts/generateTailwindCss.mjs",
+    "watch": "pnpm run /^watch:.*$/"
   },
   "keywords": [],
   "author": "",
