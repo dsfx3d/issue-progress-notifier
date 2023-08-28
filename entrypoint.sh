@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node ./action.js
+node /action/action.js
