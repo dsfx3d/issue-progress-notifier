@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "generate:css": "node scripts/generateCss.mjs",
+    "generate:tailwind": "node scripts/generateTailwindCss.mjs",
     "generate:graphql": "graphql-codegen --config codegen.ts",
     "generate": "pnpm run generate:graphql && pnpm run generate:css",
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
