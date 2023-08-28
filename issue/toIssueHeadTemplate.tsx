@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as elements from "typed-html";
-import {IssueHeadFragment} from "../lib/graphql";
+import {IssueHeadFragment} from "$lib/graphql";
 
 export function toIssueHeadTemplate({
   title,
