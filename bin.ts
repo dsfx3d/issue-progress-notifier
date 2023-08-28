@@ -31,8 +31,8 @@ const action = toAction(
     subject: `${data.repository?.issue?.[" $fragmentRefs"]?.IssueHeadFragment.title}`,
     html: await toHtml({
       body: toIssueOpenedTemplate(data),
-      css: `${await readFile(tailwindCss, "utf8")}
-${await readFile(githubCss, "utf8")}`,
+      css: `${await readFile("./lib/tailwind.css", "utf8")}
+${await readFile("./lib/github.css", "utf8")}`,
     }),
   }),
   options =>
@@ -45,7 +45,7 @@ ${await readFile(githubCss, "utf8")}`,
       },
     } as SMTPTransport.Options).sendMail(options),
 );
-// eslint-disable-next-line unicorn/prefer-top-level-await
+
 action().then(result => {
   if (!result.success) {
     throw result.reason;
