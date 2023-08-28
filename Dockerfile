@@ -18,4 +18,4 @@ RUN ls ./
 
 RUN ls ./lib
 
-# ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
