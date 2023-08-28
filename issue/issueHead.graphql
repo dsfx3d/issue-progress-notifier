@@ -1,0 +1,9 @@
+fragment issueHead on Issue {
+  author {
+    login
+  }
+  number
+  title
+  createdAt
+  state
+}

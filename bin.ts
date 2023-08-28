@@ -1,12 +1,12 @@
-import {GetIssueDocument} from "./lib/graphql";
 import {GraphQLClient} from "graphql-request";
+import {IssueOpenedDocument} from "./lib/graphql";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
-import {getGitHubCss} from "./html-compiler/getGitHubCss";
+import {readFile} from "node:fs/promises";
 import {toAction} from "./action/toAction";
-import {toGetIssueTemplate} from "./issue/toGetIssueTemplate";
 import {toHtml} from "./html-compiler/toHtml";
+import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
@@ -18,7 +18,7 @@ const action = toAction(
       },
     }),
   client =>
-    client.request(GetIssueDocument, {
+    client.request(IssueOpenedDocument, {
       owner: context.repo.owner,
       name: context.repo.repo,
       issue: context.issue.number,
@@ -26,10 +26,11 @@ const action = toAction(
   async data => ({
     from: process.env.SMTP_USER,
     to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
-    subject: `${data.repository?.issue?.title}`,
+    subject: `${data.repository?.issue?.[" $fragmentRefs"]?.IssueHeadFragment.title}`,
     html: await toHtml({
-      body: toGetIssueTemplate(data),
-      css: await getGitHubCss(),
+      body: toIssueOpenedTemplate(data),
+      css: `${await readFile("lib/github.css", "utf8")}
+${await readFile("lib/tailwind.css", "utf8")}`,
     }),
   }),
   options =>
