@@ -3,7 +3,9 @@ import {IssueOpenedDocument} from "./lib/graphql";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
+import {githubCss} from "./scripts/githubCss.mjs";
 import {readFile} from "node:fs/promises";
+import {tailwindCss} from "./scripts/tailwindCss.mjs";
 import {toAction} from "./action/toAction";
 import {toHtml} from "./html-compiler/toHtml";
 import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
@@ -29,8 +31,8 @@ const action = toAction(
     subject: `${data.repository?.issue?.[" $fragmentRefs"]?.IssueHeadFragment.title}`,
     html: await toHtml({
       body: toIssueOpenedTemplate(data),
-      css: `${await readFile("lib/github.css", "utf8")}
-${await readFile("lib/tailwind.css", "utf8")}`,
+      css: `${await readFile(tailwindCss, "utf8")}
+${await readFile(githubCss, "utf8")}`,
     }),
   }),
   options =>
