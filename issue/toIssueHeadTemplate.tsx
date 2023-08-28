@@ -2,7 +2,7 @@
 import * as elements from "typed-html";
 import {IssueHeadFragment} from "../lib/graphql";
 
-export function toIssueHead({
+export function toIssueHeadTemplate({
   title,
   number,
   state,
