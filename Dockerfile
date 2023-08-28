@@ -14,8 +14,4 @@ RUN pnpm build
 
 RUN chmod +x ./entrypoint.sh
 
-RUN ls ./
-
-RUN ls ./lib
-
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["cd", "/action", "&&", "./entrypoint.sh"]

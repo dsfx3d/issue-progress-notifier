@@ -1,5 +1,5 @@
 #!/bin/sh
 
 pwd
-ls -la lib
+ls -la
 node /action/action.js
