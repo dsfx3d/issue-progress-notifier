@@ -5,7 +5,7 @@
   "scripts": {
     "generate:css": "node scripts/generateCss.mjs",
     "generate:graphql": "graphql-codegen --config codegen.ts",
-    "generate": "pnpm run generate:css && pnpm run generate:graphql",
+    "generate": "pnpm run generate:graphql && pnpm run generate:css",
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.mjs",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
