@@ -11,6 +11,7 @@ import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 console.log("from", process.env.SMTP_FROM);
+console.log("to", uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`));
 
 const action = toAction(
   () =>
