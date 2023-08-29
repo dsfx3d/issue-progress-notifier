@@ -4,6 +4,7 @@ query IssueOpened($name: String!, $owner: String!, $issue: Int!) {
   repository(name: $name, owner: $owner) {
     issue(number: $issue) {
       ...issueHead
+      title
       bodyHTML
       bodyText
     }
