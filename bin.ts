@@ -8,7 +8,6 @@ import {stylesOutput} from "./shared/stylesOutput";
 import {toAction} from "./action/toAction";
 import {toHtml} from "./html-compiler/toHtml";
 import {toIssueHeadTemplate} from "./issue/toIssueHeadTemplate";
-import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
