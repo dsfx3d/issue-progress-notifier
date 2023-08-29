@@ -18,5 +18,6 @@ export function toHtml({body, css}: {body: string; css: string}): string {
   );
   return juice(html, {
     removeStyleTags: true,
+    preserveKeyFrames: false,
   });
 }
