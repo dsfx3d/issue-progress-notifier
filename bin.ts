@@ -9,8 +9,6 @@ import {toHtml} from "./html-compiler/toHtml";
 import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
-import githubCss from "./scripts/githubCss";
-import tailwindCss from "./scripts/tailwindCss";
 
 const action = toAction(
   () =>
@@ -46,4 +44,8 @@ ${await readFile("./lib/github.css", "utf8")}`,
     } as SMTPTransport.Options).sendMail(options),
 );
 
-readFile("./lib/tailwind.css", "utf8").then(console.log);
+action().then(result => {
+  if (!result.success) {
+    console.error(result.reason);
+  }
+});
