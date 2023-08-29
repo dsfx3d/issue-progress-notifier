@@ -10,6 +10,8 @@ import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
+console.log("from", process.env.SMTP_FROM);
+
 const action = toAction(
   () =>
     new GraphQLClient(context.graphqlUrl, {
