@@ -1,5 +1,3 @@
-const tailwindCss = require("./tailwindCss");
-const {writeFileSync} = require("node:fs");
 const postcss = require("postcss");
 const tailwindcss = require("tailwindcss");
 
@@ -13,6 +11,7 @@ const generateTailwindCss = async () => {
     .process(inputCss, {from: undefined})
     .then(output => output.css);
 };
-generateTailwindCss().then(css => {
-  writeFileSync(tailwindCss, css);
-});
+
+module.exports = {
+  generateTailwindCss,
+};
