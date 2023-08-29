@@ -1,5 +1,5 @@
 import {GraphQLClient} from "graphql-request";
-import {IssueOpenedDocument} from "./lib/graphql";
+import {IssueHeadFragment, IssueOpenedDocument} from "./lib/graphql";
 import {context} from "@actions/github";
 import {createTransport} from "nodemailer";
 import {emailRegex} from "./utils/emailRegex";
@@ -7,6 +7,7 @@ import {readFile} from "node:fs/promises";
 import {stylesOutput} from "./shared/stylesOutput";
 import {toAction} from "./action/toAction";
 import {toHtml} from "./html-compiler/toHtml";
+import {toIssueHeadTemplate} from "./issue/toIssueHeadTemplate";
 import {toIssueOpenedTemplate} from "./issue/toIssueOpenedTemplate";
 import {uniqueMatchAll} from "./utils/uniqueMatchAll";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
@@ -29,7 +30,9 @@ const action = toAction(
     to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
     subject: `${data.repository?.issue?.title}`,
     html: await toHtml({
-      body: toIssueOpenedTemplate(data),
+      body: toIssueHeadTemplate(
+        data.repository?.issue as unknown as IssueHeadFragment,
+      ),
       css: await readFile(stylesOutput, "utf8"),
     }),
   }),
