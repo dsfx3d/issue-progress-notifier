@@ -36,15 +36,17 @@ const action = toAction(
 ${await readFile("./lib/github.css", "utf8")}`,
     }),
   }),
-  options =>
-    createTransport({
+  options => {
+    console.log(options);
+    return createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-    } as SMTPTransport.Options).sendMail(options),
+    } as SMTPTransport.Options).sendMail(options);
+  },
 );
 
 action().then(result => {
