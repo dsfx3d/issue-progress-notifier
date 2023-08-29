@@ -1,13 +1,10 @@
 const postcss = require("postcss");
-const tailwindcss = require("tailwindcss");
+const config = require("../postcss.config");
+const {readFileSync} = require("node:fs");
 
 const generateTailwindCss = async () => {
-  const inputCss = `
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-  `;
-  return postcss([tailwindcss("tailwind.config.js")])
+  const inputCss = readFileSync("tailwind.css");
+  return postcss(config.plugins)
     .process(inputCss, {from: undefined})
     .then(output => output.css);
 };
