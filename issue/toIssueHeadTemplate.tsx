@@ -11,10 +11,12 @@ export function toIssueHeadTemplate({
 }: IssueHeadFragment): string {
   return (
     <table
-      width="100%"
-      cellpadding="0"
-      cellspacing="0"
-      class="border-b-2 pb-4 font-sans"
+      {...{
+        width: "100%",
+        cellpadding: "0",
+        cellspacing: "0",
+        class: "border-b-2 pb-4 font-sans",
+      }}
     >
       <tr>
         <td colspan="2">
