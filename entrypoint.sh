@@ -1,6 +1,4 @@
 #!/bin/sh
 
-pwd
-cd /action
-
+cd $1
 node /action/action.js
