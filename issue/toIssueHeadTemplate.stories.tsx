@@ -1,7 +1,7 @@
 import {IssueHeadFragment, IssueState} from "../lib/graphql";
 import {toHtml} from "../html-compiler/toHtml";
 import {toIssueHeadTemplate} from "./toIssueHeadTemplate";
-import css from "$lib/styles.css?inline";
+import css from "../lib/styles.css?inline";
 import type {Meta, StoryObj} from "@storybook/html";
 
 // More on how to set up stories at: https://storybook.js.org/docs/html/writing-stories/introduction#default-export
