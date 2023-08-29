@@ -26,6 +26,7 @@
     "graphql": "^16.8.0",
     "graphql-request": "^6.1.0",
     "html-minifier-terser": "^7.2.0",
+    "juice": "^9.1.0",
     "lodash": "^4.17.21",
     "nodemailer": "^6.9.4",
     "purgecss": "^5.0.0",
