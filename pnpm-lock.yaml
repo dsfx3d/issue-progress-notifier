@@ -118,6 +118,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.28
     version: 8.4.28
+  postcss-css-variables:
+    specifier: ^0.19.0
+    version: 0.19.0(postcss@8.4.28)
   prettier:
     specifier: ^3.0.2
     version: 3.0.2
@@ -10499,6 +10502,17 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       '@babel/runtime': 7.22.11
+    dev: true
+
+  /postcss-css-variables@0.19.0(postcss@8.4.28):
+    resolution: {integrity: sha512-Hr0WEYKLK9VCrY15anHXOd4RCvJy/xRvCnWdplGBeLInwEj6Z14hgzTb2W/39dYTCnS8hnHUfU4/F1zxX0IZuQ==}
+    peerDependencies:
+      postcss: ^8.2.6
+    dependencies:
+      balanced-match: 1.0.2
+      escape-string-regexp: 1.0.5
+      extend: 3.0.2
+      postcss: 8.4.28
     dev: true
 
   /postcss-import@15.1.0(postcss@8.4.28):
