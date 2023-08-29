@@ -5,7 +5,7 @@
     "jsxFactory": "elements.createElement",
     "module": "commonjs",
     "typeRoots": ["./types", "./node_modules/@types"],
-    "types": ["generate-github-markdown-css", "jest"],
+    "types": ["jest"],
     "rootDir": ".",
     "paths": {
       "$lib/*": ["./lib/*"]
@@ -26,6 +26,8 @@
     "node_modules",
     "**/*.spec.ts",
     "**/*.spec.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
     "packages/*",
     "lib",
     "codegen.ts"
