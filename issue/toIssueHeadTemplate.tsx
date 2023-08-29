@@ -21,7 +21,7 @@ export function toIssueHeadTemplate({
         </span>
         <span class="text-sm">
           <b class="font-medium">{author?.login}</b> opened this issue at{" "}
-          {createdAt}
+          {new Date(createdAt)}
         </span>
       </div>
     </div>
