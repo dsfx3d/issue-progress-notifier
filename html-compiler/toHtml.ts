@@ -1,5 +1,6 @@
 import {minify} from "html-minifier-terser";
 import {toPurgedCss} from "./toPurgedCss";
+import juice from "juice";
 
 export async function toHtml({
   body,
@@ -20,5 +21,5 @@ export async function toHtml({
     </head>
     <body>${body}</body>
     </html>`;
-  return minify(html, {minifyCSS: true});
+  return minify(juice(html), {minifyCSS: true});
 }
