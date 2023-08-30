@@ -1,17 +1,17 @@
-const {writeFileSync, existsSync, mkdirSync} = require("node:fs");
-const {generateTailwindCss} = require("./generateTailwindCss");
-const {stylesOutput} = require("../shared/stylesOutput");
+const {writeFileSync, existsSync, mkdirSync, readFileSync} = require("node:fs");
 const {dirname} = require("node:path");
+const {stylesOutput} = require("../shared/stylesOutput");
+const postcss = require("postcss");
+const config = require("../postcss.config");
 
 async function run() {
-  const getCss = (await import("generate-github-markdown-css")).default;
-  const css = `${await generateTailwindCss()}
-${await getCss()}`;
-
+  const css = readFileSync("tailwind.css");
   if (!existsSync(dirname(stylesOutput))) {
     mkdirSync(dirname(stylesOutput), {recursive: true});
   }
-  writeFileSync(stylesOutput, css);
+  postcss(config.plugins)
+    .process(css, {from: undefined})
+    .then(({css}) => writeFileSync(stylesOutput, css));
 }
 
 run();
