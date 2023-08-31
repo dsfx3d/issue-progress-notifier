@@ -1,3 +1,5 @@
+import {TActionOutput} from "./TActionOutput";
+
 export type TActionResult =
   | {
       success: false;
@@ -5,4 +7,5 @@ export type TActionResult =
     }
   | {
       success: true;
+      output: TActionOutput;
     };
