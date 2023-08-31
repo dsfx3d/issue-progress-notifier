@@ -31,6 +31,7 @@
     "lodash": "^4.17.21",
     "nodemailer": "^6.9.4",
     "posthtml": "^0.16.6",
+    "posthtml-remove-attributes": "^1.0.0",
     "purgecss": "^5.0.0",
     "typed-html": "^3.0.1"
   },
