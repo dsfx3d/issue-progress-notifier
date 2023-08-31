@@ -35,6 +35,9 @@ dependencies:
   nodemailer:
     specifier: ^6.9.4
     version: 6.9.4
+  posthtml:
+    specifier: ^0.16.6
+    version: 0.16.6
   purgecss:
     specifier: ^5.0.0
     version: 5.0.0
@@ -7630,7 +7633,6 @@ packages:
   /entities@3.0.1:
     resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
     engines: {node: '>=0.12'}
-    dev: true
 
   /entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
@@ -9354,7 +9356,6 @@ packages:
       domhandler: 4.3.1
       domutils: 2.8.0
       entities: 3.0.1
-    dev: true
 
   /htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
@@ -9889,7 +9890,6 @@ packages:
 
   /is-json@2.0.1:
     resolution: {integrity: sha512-6BEnpVn1rcf3ngfmViLM6vjUjGErbdrL4rwlv+u1NO1XO8kqT4YGL8+19Q+Z/bas8tY90BTWMk2+fW1g6hQjbA==}
-    dev: true
 
   /is-lower-case@2.0.2:
     resolution: {integrity: sha512-bVcMJy4X5Og6VZfdOZstSexlEy20Sr0k/p/b2IlQJlfdKAQuMpiv5w2Ccxb8sKdRUNAG1PnHVHjFSdRDVS6NlQ==}
@@ -12584,7 +12584,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       htmlparser2: 7.2.0
-    dev: true
 
   /posthtml-parser@0.6.0:
     resolution: {integrity: sha512-5ffwKQNgtVHdhZniWxu+1ryvaZv5l25HPLUV6W5xy5nYVWMXtvjtwRnbSpfbKFvbyl7XI+d4AqkjmonkREqnXA==}
@@ -12619,7 +12618,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       is-json: 2.0.1
-    dev: true
 
   /posthtml-safe-class-names@3.0.0:
     resolution: {integrity: sha512-3UepR+RKVp6ZDYmWp/XcdTxDjcdY5DNFQoTvprBYOVLKCUbPZNSIGvaYlPm1TnRvnxb9PVRIhYi6FF0DOtE+JA==}
@@ -12656,7 +12654,6 @@ packages:
     dependencies:
       posthtml-parser: 0.11.0
       posthtml-render: 3.0.0
-    dev: true
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
