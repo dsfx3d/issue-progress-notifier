@@ -1,5 +1,6 @@
 import type {Preview} from "@storybook/html";
-import '../lib/styles.css'
+import css from "../lib/styles.css?inline";
+import { renderHtml } from "../utils/renderHtml";
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +12,13 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (story, args) =>
+      renderHtml(document, {
+        html: story(args).toString(),
+        css,
+      }),
+  ],
 };
 
 export default preview;
