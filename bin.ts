@@ -1,54 +1,88 @@
+import {Context} from "./action/Context";
+import {EventAction} from "./action/EventAction";
 import {GraphQLClient} from "graphql-request";
-import {IssueHeadFragment, IssueOpenedDocument} from "./lib/graphql";
-import {context} from "@actions/github";
-import {createTransport} from "nodemailer";
-import {emailRegex} from "./utils/emailRegex";
-import {readFile} from "node:fs/promises";
+import {TActionOutput} from "./action/TActionOutput";
+import {TActionResult} from "./action/TActionResult";
+// import {createTransport} from "nodemailer";
+import {flatMap, matchE, tryCatch, tryCatchK} from "fp-ts/lib/TaskEither";
+import {identity} from "lodash";
+import {of} from "fp-ts/lib/Task";
+import {pipe} from "fp-ts/lib/function";
+import {queryTupleResolvers} from "./action/queryTupleResolvers";
+import {readFileSync} from "node:fs";
+import {setActionOutput} from "./action/setActionOutput";
+import {setFailed} from "@actions/core";
 import {stylesOutput} from "./shared/stylesOutput";
-import {toAction} from "./action/toAction";
+import {subjectResolvers} from "./action/subjectResolvers";
+import {subscriptionResolvers} from "./action/subscriptionResolvers";
+import {templateResolvers} from "./action/templateResolvers";
 import {toHtml} from "./html-compiler/toHtml";
-import {toIssueHeadTemplate} from "./issue/toIssueHeadTemplate";
-import {uniqueMatchAll} from "./utils/uniqueMatchAll";
-import SMTPTransport from "nodemailer/lib/smtp-transport";
+// import Mail from "nodemailer/lib/mailer";
+// import SMTPTransport from "nodemailer/lib/smtp-transport";
 
-const action = toAction(
-  () =>
-    new GraphQLClient(context.graphqlUrl, {
-      headers: {
-        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-      },
-    }),
-  client =>
-    client.request(IssueOpenedDocument, {
-      owner: context.repo.owner,
-      name: context.repo.repo,
-      issue: context.issue.number,
-    }),
-  async data => ({
-    from: process.env.SMTP_FROM,
-    to: uniqueMatchAll(emailRegex, `${context.payload.issue?.body}`),
-    subject: `${data.repository?.issue?.title}`,
-    html: await toHtml({
-      body: toIssueHeadTemplate(
-        data.repository?.issue as unknown as IssueHeadFragment,
-      ),
-      css: await readFile(stylesOutput, "utf8"),
-    }),
-  }),
-  options => {
-    return createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    } as SMTPTransport.Options).sendMail(options);
+const context = new Context();
+const eventAction = context.eventAction as EventAction;
+
+if (!Object.values(EventAction).includes(eventAction)) {
+  setFailed(`Event action ${eventAction} is not supported.`);
+}
+
+const client = new GraphQLClient(context.graphqlUrl, {
+  headers: {
+    Authorization: `Bearer ${context.githubToken}`,
   },
+});
+
+const toQueryTuple = queryTupleResolvers[eventAction];
+const toSubscribers = subscriptionResolvers[eventAction];
+const toSubject = subjectResolvers[eventAction];
+const toTemplate = templateResolvers[eventAction];
+
+const action = pipe(
+  tryCatch(() => client.request(...toQueryTuple(context)), identity),
+  flatMap(
+    tryCatchK(
+      async data => ({
+        subscribers: toSubscribers(context),
+        subject: toSubject(data),
+        bodyHtml: await toHtml({
+          body: toTemplate(data),
+          css: readFileSync(stylesOutput, "utf8"),
+        }),
+        bodyText: "",
+      }),
+      identity,
+    ),
+  ),
+  matchE<unknown, TActionOutput, TActionResult>(
+    reason =>
+      of({
+        success: false,
+        reason,
+      }),
+    output =>
+      of({
+        success: true,
+        output,
+      }),
+  ),
 );
 
 action().then(result => {
   if (!result.success) {
-    console.error(result.reason);
+    setFailed(String(result.reason));
+    return;
   }
+  setActionOutput(result.output);
 });
+
+// async function sendEmail(options: Mail.Options): Promise<unknown> {
+//   return createTransport({
+//     host: process.env.SMTP_HOST,
+//     port: process.env.SMTP_PORT,
+//     auth: {
+//       user: process.env.SMTP_USER,
+//       pass: process.env.SMTP_PASS,
+//     },
+//   } as SMTPTransport.Options).sendMail(options);
+// }
