@@ -19,6 +19,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: Decode Subscriber Email Addresses
+        id: decode_subscribers
+        run: |
+          echo "::set-output name=subscribers::$(echo ${{ steps.email_options.outputs.subscribers }} | base64 -d)"
+
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
@@ -29,5 +34,5 @@ jobs:
           subject: ${{ steps.email_options.outputs.subject }}
           body: ${{ steps.email_options.outputs.bodyText }}
           html_body: ${{ steps.email_options.outputs.bodyHtml }}
-          to: ${{ steps.email_options.outputs.subscribers }}
+          to: ${{ steps.decode_subscribers.outputs.subscribers }}
           from: dsfx3d@gmail.com
