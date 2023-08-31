@@ -21,7 +21,6 @@ import {toHtml} from "./html-compiler/toHtml";
 // import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const context = new Context();
-console.log(JSON.stringify(context));
 const eventAction = context.eventAction as EventAction;
 
 if (!Object.values(EventAction).includes(eventAction)) {
@@ -75,6 +74,7 @@ action().then(result => {
     return;
   }
   setActionOutput(result.output);
+  console.log("Action output set.", JSON.stringify(result.output));
 });
 
 // async function sendEmail(options: Mail.Options): Promise<unknown> {
