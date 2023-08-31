@@ -1,29 +1,16 @@
 import {IssueHeadFragment, IssueState} from "../lib/graphql";
-import {toHtml} from "../html-compiler/toHtml";
 import {toIssueHeadTemplate} from "./toIssueHeadTemplate";
-import css from "../lib/styles.css?inline";
 import type {Meta, StoryObj} from "@storybook/html";
 
-// More on how to set up stories at: https://storybook.js.org/docs/html/writing-stories/introduction#default-export
 const meta = {
-  title: "Molecules/IssueHead",
+  title: "Issue/IssueHead",
   tags: ["autodocs"],
-  render: args => {
-    const root = document.createElement("div");
-    toHtml({
-      body: toIssueHeadTemplate(args),
-      css,
-    }).then(html => {
-      root.innerHTML = html;
-    });
-    return root;
-  },
+  render: args => toIssueHeadTemplate(args),
 } satisfies Meta<IssueHeadFragment>;
 
 export default meta;
 type Story = StoryObj<IssueHeadFragment>;
 
-// More on writing stories with args: https://storybook.js.org/docs/html/writing-stories/args
 export const Primary: Story = {
   args: {
     author: {
