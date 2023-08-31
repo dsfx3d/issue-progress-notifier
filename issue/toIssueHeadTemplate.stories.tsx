@@ -8,11 +8,16 @@ import type {Meta, StoryObj} from "@storybook/html";
 const meta = {
   title: "Molecules/IssueHead",
   tags: ["autodocs"],
-  render: args =>
+  render: args => {
+    const root = document.createElement("div");
     toHtml({
       body: toIssueHeadTemplate(args),
       css,
-    }),
+    }).then(html => {
+      root.innerHTML = html;
+    });
+    return root;
+  },
 } satisfies Meta<IssueHeadFragment>;
 
 export default meta;
