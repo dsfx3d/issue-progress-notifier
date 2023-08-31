@@ -13,12 +13,20 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Send notification emails
+      - name: Generate Email Template
+        id: email_options
         uses: ./
         env:
-          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_HOST: email-smtp.ap-south-1.amazonaws.com
-          SMTP_PORT: 465
-          SMTP_FROM: dsfx3d@gmail.com
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: email-smtp.ap-south-1.amazonaws.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASS }}
+          subject: ${{ steps.email_options.outputs.subject }}
+          body: ${{ steps.email_options.outputs.body }}
+          to: ${{ steps.email_options.outputs.subscribers }}
+          from: dsfx3d@gmail.com
