@@ -6,8 +6,13 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: ["emerald"],
+  plugins: [require("tailwindcss-email-variants")],
+  corePlugins: {
+    preflight: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    placeholderOpacity: false,
+    textOpacity: false,
   },
 };
