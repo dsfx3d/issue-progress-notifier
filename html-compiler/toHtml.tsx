@@ -1,13 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import * as elements from "typed-html";
 import {inlineCss} from "./inlineCss";
+import posthtml from "posthtml";
+import removeAttributes from "posthtml-remove-attributes";
 
-export function toHtml({body, css}: {body: string; css: string}) {
-  const html = inlineCss({
-    html: body,
-    css,
-  });
-  return `<!DOCTYPE html>
+export async function toHtml({
+  body,
+  css,
+}: {
+  body: string;
+  css: string;
+}): Promise<string> {
+  const template = `<!DOCTYPE html>
     <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
     <head>
       <meta charset="utf-8">
@@ -31,7 +33,14 @@ export function toHtml({body, css}: {body: string; css: string}) {
       <title>The Website Weekly Newsletter</title>
     </head>
     <body>
-      ${html}
+      ${inlineCss({
+        html: body,
+        css,
+      })}
     </body>
     </html>`;
+  const {html} = await posthtml()
+    .use(removeAttributes(["class"]))
+    .process(template);
+  return html;
 }
