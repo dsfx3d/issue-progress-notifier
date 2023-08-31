@@ -27,6 +27,7 @@ jobs:
           username: ${{ secrets.SMTP_USER }}
           password: ${{ secrets.SMTP_PASS }}
           subject: ${{ steps.email_options.outputs.subject }}
-          body: ${{ steps.email_options.outputs.body }}
+          body: ${{ steps.email_options.outputs.bodyText }}
+          html_body: ${{ steps.email_options.outputs.bodyHtml }}
           to: ${{ steps.email_options.outputs.subscribers }}
           from: dsfx3d@gmail.com
