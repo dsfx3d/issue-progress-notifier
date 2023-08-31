@@ -127,6 +127,9 @@ devDependencies:
   postcss-css-variables:
     specifier: ^0.19.0
     version: 0.19.0(postcss@8.4.28)
+  postcss-merge-longhand:
+    specifier: ^6.0.0
+    version: 6.0.0(postcss@8.4.28)
   prettier:
     specifier: ^3.0.2
     version: 3.0.2
