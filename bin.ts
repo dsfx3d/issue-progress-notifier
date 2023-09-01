@@ -13,8 +13,8 @@ import {readFileSync} from "node:fs";
 import {setActionOutput} from "./action/setActionOutput";
 import {setFailed} from "@actions/core";
 import {stylesOutput} from "./shared/stylesOutput";
-import {subjectResolvers} from "./action/subjectResolvers";
-import {subscriptionResolvers} from "./action/subscriptionResolvers";
+// import {subjectResolvers} from "./action/subjectResolvers";
+// import {subscriptionResolvers} from "./action/subscriptionResolvers";
 import {templateResolvers} from "./action/templateResolvers";
 import {toHtml} from "./html-compiler/toHtml";
 // import Mail from "nodemailer/lib/mailer";
@@ -34,8 +34,8 @@ const client = new GraphQLClient(context.graphqlUrl, {
 });
 
 const toQueryTuple = queryTupleResolvers[eventAction];
-const toSubscribers = subscriptionResolvers[eventAction];
-const toSubject = subjectResolvers[eventAction];
+// const toSubscribers = subscriptionResolvers[eventAction];
+// const toSubject = subjectResolvers[eventAction];
 const toTemplate = templateResolvers[eventAction];
 
 const action = pipe(
@@ -43,13 +43,13 @@ const action = pipe(
   flatMap(
     tryCatchK(
       async data => ({
-        subscribers: toSubscribers(context),
-        subject: toSubject(data),
+        // subscribers: toSubscribers(context),
+        // subject: toSubject(data),
         bodyHtml: await toHtml({
           body: toTemplate(data),
           css: readFileSync(stylesOutput, "utf8"),
         }),
-        bodyText: "",
+        // bodyText: "",
       }),
       identity,
     ),
