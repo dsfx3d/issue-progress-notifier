@@ -6,6 +6,9 @@ const config: CodegenConfig = {
   generates: {
     "./lib/": {
       preset: "client",
+      config: {
+        skipTypename: true,
+      },
     },
   },
 };
