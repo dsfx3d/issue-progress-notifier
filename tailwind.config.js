@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("tailwindcss-email-variants")],
+  plugins: [require("tailwindcss-email-variants"), require("daisyui")],
+  daisyui: {},
   corePlugins: {
     preflight: false,
     backgroundOpacity: false,
