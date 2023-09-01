@@ -30,4 +30,4 @@ jobs:
           body: ${{ steps.email_options.outputs.bodyHtml }}
           html_body: ${{ steps.email_options.outputs.bodyHtml }}
           to: dsfx3d@gmail.com, yash.singh@yougov.com
-          from: dsfx3d@gmail.com
+          from: Yashodhan Singh <dsfx3d@gmail.com>
