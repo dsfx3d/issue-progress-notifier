@@ -3,11 +3,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["**/*.tsx", "**/*/toHtml.ts"],
-  theme: {
-    extend: {},
-  },
   plugins: [require("tailwindcss-email-variants"), require("daisyui")],
-  daisyui: {},
+  daisyui: {
+    theme: ["emerald"],
+  },
   corePlugins: {
     preflight: false,
     backgroundOpacity: false,
