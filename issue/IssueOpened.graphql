@@ -2,11 +2,19 @@
 
 query IssueOpened($name: String!, $owner: String!, $issue: Int!) {
   repository(name: $name, owner: $owner) {
+    nameWithOwner
     issue(number: $issue) {
-      ...issueHead
+      author {
+        login
+      }
+      number
       title
+      state
       bodyHTML
       bodyText
+      comments {
+        totalCount
+      }
     }
   }
 }
