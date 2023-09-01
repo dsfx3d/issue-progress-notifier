@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.SMTP_USER }}
           password: ${{ secrets.SMTP_PASS }}
           subject: ${{ github.event.issue.title}}
-          body: ${{ steps.email_options.outputs.bodyHtml }}
+          body: ${{ github.event.issue.body }}
           html_body: ${{ steps.email_options.outputs.bodyHtml }}
           to: dsfx3d@gmail.com, yash.singh@yougov.com
           from: Yashodhan Singh <dsfx3d@gmail.com>
