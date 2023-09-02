@@ -1,8 +1,9 @@
 const {writeFileSync, existsSync, mkdirSync} = require("node:fs");
 const {dirname} = require("node:path");
-const {stylesOutput} = require("../shared/stylesOutput");
 const postcss = require("postcss");
 const tailwindConfig = require("./tailwind.config");
+
+const stylesOutput = "lib/styles.css";
 
 if (!existsSync(dirname(stylesOutput))) {
   mkdirSync(dirname(stylesOutput), {recursive: true});
