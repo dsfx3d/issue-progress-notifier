@@ -1,12 +1,10 @@
+import {TCompilerOptions} from "./TCompilerOptions";
 import juice from "juice";
 
-export function inlineCss({html, css}: {html: string; css: string}): string {
+export function inlineCss({body, css}: TCompilerOptions): string {
   juice.excludedProperties = ["--tw-shadow"];
-
-  html = juice.inlineContent(html, css, {
+  return juice.inlineContent(body, css, {
     removeStyleTags: false,
     applyAttributesTableElements: true,
   });
-
-  return html;
 }
