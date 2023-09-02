@@ -3,4 +3,4 @@ description: Notify repo events to subscribers
 
 runs:
   using: docker
-  image: ./action/Dockerfile
+  image: Dockerfile
