@@ -1,11 +1,14 @@
 import {Context as Base} from "@actions/github/lib/context";
+import {EventAction} from "./EventAction";
+import {GraphQLClient} from "graphql-request";
 
 export class Context extends Base {
-  readonly eventAction = `${this.eventName} ${this.payload.action}`;
-  readonly githubToken = process.env.GITHUB_TOKEN as string;
+  readonly eventAction =
+    `${this.eventName} ${this.payload.action}` as EventAction;
 
-  // eslint-disable-next-line no-useless-constructor
-  constructor() {
-    super();
-  }
+  readonly graphqlClient = new GraphQLClient(this.graphqlUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  });
 }
