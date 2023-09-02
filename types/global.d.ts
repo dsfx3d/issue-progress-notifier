@@ -1,10 +1,6 @@
-declare module "$lib/styles.css?inline" {
+declare module "*.css" {
   const content: string;
   export default content;
-}
-
-declare module "generate-github-markdown-css" {
-  export function getCss(): string;
 }
 
 declare module "posthtml-remove-attributes" {
