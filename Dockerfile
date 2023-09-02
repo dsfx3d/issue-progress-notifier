@@ -14,4 +14,4 @@ RUN pnpm build
 
 RUN chmod +x ./action/entrypoint.sh
 
-ENTRYPOINT ["./action/entrypoint.sh", "$(pwd)"]
+ENTRYPOINT ["./action/entrypoint.sh", "/action"]
