@@ -2,7 +2,7 @@ name: Issue Progress Notifier
 
 on:
   issues:
-    types: [reopened]
+    types: [reopened, closed]
 
 jobs:
   notify:
@@ -10,9 +10,7 @@ jobs:
     environment: Issue Notifier Action
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+
       - name: Generate Email Template
         id: email_options
         uses: ./
