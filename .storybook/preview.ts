@@ -1,6 +1,7 @@
+import {renderHtml} from "../utils/renderHtml";
 import type {Preview} from "@storybook/html";
+// @ts-ignore
 import css from "../lib/styles.css?inline";
-import { renderHtml } from "../utils/renderHtml";
 
 const preview: Preview = {
   parameters: {
