@@ -1,7 +1,7 @@
 const esbuild = require("esbuild");
 
 esbuild.buildSync({
-  entryPoints: ["bin.ts"],
+  entryPoints: ["./action/bin.ts"],
   bundle: true,
   outfile: "action.js",
   platform: "node",
