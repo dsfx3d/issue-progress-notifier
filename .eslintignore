@@ -4,3 +4,4 @@ lib
 .eslintrc.js
 action.js
 coverage
+!.storybook
