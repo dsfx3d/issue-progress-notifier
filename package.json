@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "generate:css": "node scripts/generateCss.js",
-    "generate:graphql": "graphql-codegen --config codegen.ts",
+    "generate:graphql": "graphql-codegen --config ./scripts/codegen.ts",
     "generate": "pnpm run /^generate:.*$/",
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.js",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",

@@ -30,6 +30,6 @@
     "**/*.stories.tsx",
     "packages/*",
     "lib",
-    "codegen.ts"
+    "scripts/codegen.ts"
   ]
 }
