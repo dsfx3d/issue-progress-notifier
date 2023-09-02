@@ -1,5 +1,5 @@
 import type {Preview} from "@storybook/html";
-import css from "../tailwind.css?inline";
+import css from "../lib/styles.css?inline";
 import { renderHtml } from "../utils/renderHtml";
 
 const preview: Preview = {
