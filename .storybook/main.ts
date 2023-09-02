@@ -14,5 +14,16 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  viteFinal: async config => {
+    return {
+      ...config,
+      resolve: {
+        alias: {
+          ...config.resolve?.alias,
+          "typed-html": "typed-html/dist/esm/src/elements",
+        },
+      },
+    };
+  },
 };
 export default config;
