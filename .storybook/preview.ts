@@ -1,4 +1,4 @@
-import {renderHtml} from "../utils/renderHtml";
+import {renderHtml} from "./renderHtml";
 import type {Preview} from "@storybook/html";
 // @ts-ignore
 import css from "../lib/styles.css?inline";
