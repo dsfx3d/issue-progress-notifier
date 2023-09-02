@@ -1,9 +1,7 @@
-#import './issueHead.graphql'
-
-query IssueOpened($name: String!, $owner: String!, $issue: Int!) {
-  repository(name: $name, owner: $owner) {
+query IssueOpened($repo: String!, $owner: String!, $number: Int!) {
+  repository(name: $repo, owner: $owner) {
     nameWithOwner
-    issue(number: $issue) {
+    issue(number: $number) {
       author {
         login
       }
