@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Generate Email Template
-        id: email_options
+        id: generate_templates
         uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -26,6 +26,6 @@ jobs:
           password: ${{ secrets.SMTP_PASS }}
           subject: ${{ github.event.issue.title}}
           body: ${{ github.event.issue.body }}
-          html_body: ${{ steps.email_options.outputs.bodyHtml }}
+          html_body: ${{ steps.generate_templates.outputs.template }}
           to: dsfx3d@gmail.com, yash.singh@yougov.com
           from: Yashodhan Singh <dsfx3d@gmail.com>
