@@ -1,9 +1,13 @@
-query IssueOpened($repo: String!, $owner: String!, $number: Int!) {
+query IssueTemplate($repo: String!, $owner: String!, $number: Int!) {
   repository(name: $repo, owner: $owner) {
     nameWithOwner
+    owner {
+      avatarUrl
+    }
     issue(number: $number) {
       author {
         login
+        url
       }
       number
       title
