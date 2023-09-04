@@ -1,4 +1,6 @@
-export function wrapHtmlDocument(template: string): string {
+import {THtmlOptions} from "./THtmlOptions";
+
+export function wrapHtmlDocument({body, css}: THtmlOptions): string {
   return `<!DOCTYPE html>
   <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
   <head>
@@ -20,9 +22,12 @@ export function wrapHtmlDocument(template: string): string {
       td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI", sans-serif; mso-line-height-rule: exactly;}
     </style>
     <![endif]-->
+    <style>
+      ${css}
+    </style>
   </head>
   <body>
-    ${template}
+    ${body}
   </body>
   </html>`;
 }
