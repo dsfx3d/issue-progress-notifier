@@ -12,6 +12,4 @@ COPY . .
 
 RUN pnpm build
 
-RUN chmod +x ./action/entrypoint.sh
-
-ENTRYPOINT ["./action/entrypoint.sh", "/action"]
+ENTRYPOINT ["node", "/action/bin.js"]
