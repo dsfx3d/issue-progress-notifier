@@ -1,6 +1,6 @@
 {
-  "name": "issue-notifier-action",
-  "version": "1.0.0",
+  "name": "github-events-email-template",
+  "version": "0.2.0",
   "description": "",
   "scripts": {
     "generate:css": "node scripts/generateCss.js",
