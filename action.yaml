@@ -3,4 +3,4 @@ description: Notify repo events to subscribers
 
 runs:
   using: docker
-  image: Dockerfile
+  image: docker://ghcr.io/dsfx3d/github-events-email-template:dev
