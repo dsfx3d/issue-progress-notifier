@@ -19,10 +19,11 @@ export const templateResolvers: TTemplateResolverTuple[] = [
       );
       return (
         <Issue
+          actor={context.actor}
+          action={context.payload.action}
           issue={repository?.issue}
           repo={repository}
           owner={repository?.owner}
-          author={repository?.issue?.author}
         />
       );
     },

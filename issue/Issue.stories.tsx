@@ -13,16 +13,14 @@ type Story = StoryObj<Props>;
 
 export const Primary: Story = {
   args: {
+    action: "opened",
+    actor: "octocat",
     repo: {
       nameWithOwner: "octocat/hello-world",
     },
     owner: {
       avatarUrl:
         "https://1.gravatar.com/avatar/f7d6a4011c9fbf2b5539d02d3b22826fc4ddc25112a70e5b1d006a506431ade5?size=256",
-    },
-    author: {
-      login: "octocat",
-      url: "https://github.com/octocat",
     },
     issue: {
       title:
