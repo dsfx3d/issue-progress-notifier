@@ -2,11 +2,17 @@
   "name": "github-events-email-template",
   "version": "0.3.0",
   "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/*/**"
+  ],
   "scripts": {
     "generate:css": "node scripts/generateCss.js",
     "generate:graphql": "graphql-codegen --config ./scripts/codegen.ts",
     "generate": "pnpm run /^generate:.*$/",
     "build": "pnpm generate && tsc --noEmit --skipLibCheck && node scripts/buildAction.js",
+    "build:lib": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
     "coverage": "jest --coverage",
