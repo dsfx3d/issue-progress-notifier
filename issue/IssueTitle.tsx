@@ -2,11 +2,11 @@
 import * as elements from "typed-html";
 import {Issue} from "$lib/graphql";
 
-type Props = {
+export type IssueTitleProps = {
   issue?: Pick<Issue, "title" | "number"> | null;
 };
 
-export function IssueTitle({issue}: Props): string {
+export function IssueTitle({issue}: IssueTitleProps): string {
   return (
     <div class="text-3xl font-medium my-2">
       {issue?.title}

@@ -2,11 +2,11 @@
 import * as elements from "typed-html";
 import {State} from "./State";
 
-export type Props = {
+export type StateBadgeProps = {
   state?: string;
 };
 
-export function StateBadge({state}: Props): string {
+export function StateBadge({state}: StateBadgeProps): string {
   const badgeColor: Record<State, string> = {
     OPEN: "badge-success",
     CLOSED: "badge-accent",

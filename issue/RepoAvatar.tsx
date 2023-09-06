@@ -1,12 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as elements from "typed-html";
 
-type Props = {
+export type RepoAvatarProps = {
   avatarUrl?: string;
   nameWithOwner?: string;
 };
 
-export function RepoAvatar({avatarUrl, nameWithOwner}: Props): string {
+export function RepoAvatar({
+  avatarUrl,
+  nameWithOwner,
+}: RepoAvatarProps): string {
   return (
     <div class="avatar">
       <div class="w-5 rounded-full mr-2">

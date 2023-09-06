@@ -1,14 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as elements from "typed-html";
-import {StateBadge, Props as StateBadgeProps} from "./StateBadge";
+import {StateBadge, StateBadgeProps} from "./StateBadge";
 
-type Props = StateBadgeProps & {
+export type StateAuthorProps = StateBadgeProps & {
   action?: string;
   actor?: string;
   state?: string;
 };
 
-export function StateAuthor({action, actor, state}: Props): string {
+export function StateAuthor({action, actor, state}: StateAuthorProps): string {
   return (
     <div>
       <StateBadge state={state} />

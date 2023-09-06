@@ -5,7 +5,7 @@ import {IssueTitle} from "./IssueTitle";
 import {RepoAvatar} from "./RepoAvatar";
 import {StateAuthor} from "./StateAuthor";
 
-export type Props = {
+export type IssueProps = {
   action?: string;
   actor: string;
   issue?: Pick<Issue, "state" | "bodyHTML" | "number" | "title"> | null;
@@ -13,7 +13,7 @@ export type Props = {
   owner?: Pick<RepositoryOwner, "avatarUrl">;
 };
 
-export function Issue({action, actor, issue, owner, repo}: Props): string {
+export function Issue({action, actor, issue, owner, repo}: IssueProps): string {
   return (
     <div class="font-sans py-4 px-6">
       <RepoAvatar
