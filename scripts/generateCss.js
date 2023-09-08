@@ -10,7 +10,6 @@ if (!existsSync(dirname(stylesOutput))) {
 }
 
 const css = `
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 `;
