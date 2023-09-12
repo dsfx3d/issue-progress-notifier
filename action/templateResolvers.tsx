@@ -7,15 +7,15 @@ import {TTemplateResolverTuple} from "../template-compiler/TTemplateResolverTupl
 export const templateResolvers: TTemplateResolverTuple[] = [
   [
     ["issues"],
-    ["opened", "reopened", "closed"],
-    async context => {
-      const {repository} = await context.graphqlClient.request(
+    ["opened", "edited", "reopened", "closed"],
+    async (context) => {
+      const { repository } = await context.graphqlClient.request(
         IssueTemplateDocument,
         {
           number: context.issue.number,
           owner: context.repo.owner,
           repo: context.repo.repo,
-        },
+        }
       );
       return (
         <Issue
