@@ -78,7 +78,7 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.4.0",
     "tailwindcss": "^3.3.3",
-    "tailwindcss-email-variants": "^2.0.3",
+    "tailwindcss-email-variants": "^3.0.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "tsconfig-paths-jest": "^0.0.1",
